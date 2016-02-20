@@ -58,6 +58,8 @@ def select_sample():
 
 @app.route('/')
 def index():
+    if 'sample_id' not in session:
+        return render_template('error.html')
     return render_template('index.html', sample_id=session['sample_id'])
 
 
