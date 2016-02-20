@@ -1,0 +1,1261 @@
+ * Running on http://0.0.0.0:2048/ (Press CTRL+C to quit)
+ * Restarting with stat
+210.45.114.174 - - [15/Oct/2015 11:56:25] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu2.smarthealthit.org&launch=12 HTTP/1.1" 302 -
+210.45.114.174 - - [15/Oct/2015 11:56:26] "GET /prompt-select-sample HTTP/1.1" 200 -
+210.45.114.174 - - [15/Oct/2015 11:56:28] "GET /callsets? HTTP/1.1" 200 -
+101.226.66.173 - - [15/Oct/2015 11:56:30] "GET /fhir-app/launch.html?iss=https://fhir-api-dstu2.smarthealthit.org&launch=12 HTTP/1.1" 302 -
+101.226.66.173 - - [15/Oct/2015 11:56:30] "GET /prompt-select-sample HTTP/1.1" 200 -
+210.45.114.174 - - [15/Oct/2015 11:56:33] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+210.45.114.174 - - [15/Oct/2015 11:56:33] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu2.smarthealthit.org&selected=&launch=12 HTTP/1.1" 200 -
+180.153.201.64 - - [15/Oct/2015 11:56:33] "GET /fhir-app/launch.html?iss=https://fhir-api-dstu2.smarthealthit.org&selected=&launch=12 HTTP/1.1" 200 -
+210.45.114.174 - - [15/Oct/2015 11:56:37] "GET /fhir-app/null?client_id=%20f0013746-dc69-46fc-94d7-362129111ffc&response_type=code&scope=launch%20launch%2Fpatient%20launch%2Fencounter%20patient%2F*.read%20user%2F*.*%20openid%20profile%20launch%3A12&redirect_uri=http%3A%2F%2Flocalhost%3A2048%2F&state=f64c462e-3a86-44d7-c1d1-1003f0ea13b9 HTTP/1.1" 404 -
+101.226.33.238 - - [15/Oct/2015 11:56:40] code 400, message Bad request syntax ('GET /fhir-app/null?client_id= f0013746-dc69-46fc-94d7-362129111ffc&response_type=code&scope=launch launch/patient launch/encounter patient/*.read user/*.* openid profile launch:12&redirect_uri=http://localhost:2048/&state=f64c462e-3a86-44d7-c1d1-1003f0ea13b9 HTTP/1.1')
+101.226.33.238 - - [15/Oct/2015 11:56:40] "GET /fhir-app/null?client_id= f0013746-dc69-46fc-94d7-362129111ffc&response_type=code&scope=launch launch/patient launch/encounter patient/*.read user/*.* openid profile launch:12&redirect_uri=http://localhost:2048/&state=f64c462e-3a86-44d7-c1d1-1003f0ea13b9 HTTP/1.1" 400 -
+210.45.114.174 - - [15/Oct/2015 12:01:49] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu2.smarthealthit.org&launch=13 HTTP/1.1" 302 -
+210.45.114.174 - - [15/Oct/2015 12:01:49] "GET /prompt-select-sample HTTP/1.1" 200 -
+210.45.114.174 - - [15/Oct/2015 12:01:52] "GET /callsets? HTTP/1.1" 200 -
+210.45.114.174 - - [15/Oct/2015 12:01:53] "GET /select-sample?sample_id=10473108253681171589-1 HTTP/1.1" 302 -
+112.64.235.245 - - [15/Oct/2015 12:01:53] "GET /fhir-app/launch.html?iss=https://fhir-api-dstu2.smarthealthit.org&launch=13 HTTP/1.1" 302 -
+210.45.114.174 - - [15/Oct/2015 12:01:53] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu2.smarthealthit.org&selected=&launch=13 HTTP/1.1" 200 -
+112.64.235.245 - - [15/Oct/2015 12:01:53] "GET /prompt-select-sample HTTP/1.1" 200 -
+101.226.33.239 - - [15/Oct/2015 12:01:53] "GET /select-sample?sample_id=10473108253681171589-1 HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/deployer/GenomicsAdvisor/GenomicsAdvisor_v2/web.py", line 36, in select_sample
+    launch_args = json.loads(session['launch_args'])
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/local.py", line 368, in <lambda>
+    __getitem__ = lambda x, i: x._get_current_object()[i]
+KeyError: 'launch_args'
+101.226.33.226 - - [15/Oct/2015 12:01:55] "GET /fhir-app/launch.html?iss=https://fhir-api-dstu2.smarthealthit.org&selected=&launch=13 HTTP/1.1" 200 -
+210.45.114.174 - - [15/Oct/2015 12:01:58] "GET /fhir-app/null?client_id=%20f0013746-dc69-46fc-94d7-362129111ffc&response_type=code&scope=launch%20launch%2Fpatient%20launch%2Fencounter%20patient%2F*.read%20user%2F*.*%20openid%20profile%20launch%3A13&redirect_uri=http%3A%2F%2Flocalhost%3A2048%2F&state=60f5f235-e27c-9328-94be-53c318d4ae6f HTTP/1.1" 404 -
+180.153.211.190 - - [15/Oct/2015 12:01:59] code 400, message Bad request syntax ('GET /fhir-app/null?client_id= f0013746-dc69-46fc-94d7-362129111ffc&response_type=code&scope=launch launch/patient launch/encounter patient/*.read user/*.* openid profile launch:13&redirect_uri=http://localhost:2048/&state=60f5f235-e27c-9328-94be-53c318d4ae6f HTTP/1.1')
+180.153.211.190 - - [15/Oct/2015 12:01:59] "GET /fhir-app/null?client_id= f0013746-dc69-46fc-94d7-362129111ffc&response_type=code&scope=launch launch/patient launch/encounter patient/*.read user/*.* openid profile launch:13&redirect_uri=http://localhost:2048/&state=60f5f235-e27c-9328-94be-53c318d4ae6f HTTP/1.1" 400 -
+210.45.114.174 - - [15/Oct/2015 12:02:22] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu2.smarthealthit.org&launch=14 HTTP/1.1" 302 -
+210.45.114.174 - - [15/Oct/2015 12:02:23] "GET /prompt-select-sample HTTP/1.1" 200 -
+210.45.114.174 - - [15/Oct/2015 12:02:25] "GET /callsets? HTTP/1.1" 200 -
+101.226.33.200 - - [15/Oct/2015 12:02:25] "GET /fhir-app/launch.html?iss=https://fhir-api-dstu2.smarthealthit.org&launch=14 HTTP/1.1" 302 -
+210.45.114.174 - - [15/Oct/2015 12:02:31] "GET /select-sample?sample_id=10473108253681171589-6 HTTP/1.1" 302 -
+101.226.33.200 - - [15/Oct/2015 12:02:31] "GET /prompt-select-sample HTTP/1.1" 200 -
+101.226.33.205 - - [15/Oct/2015 12:02:31] "GET /select-sample?sample_id=10473108253681171589-6 HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/deployer/GenomicsAdvisor/GenomicsAdvisor_v2/web.py", line 36, in select_sample
+    launch_args = json.loads(session['launch_args'])
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/local.py", line 368, in <lambda>
+    __getitem__ = lambda x, i: x._get_current_object()[i]
+KeyError: 'launch_args'
+210.45.114.174 - - [15/Oct/2015 12:02:31] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu2.smarthealthit.org&selected=&launch=14 HTTP/1.1" 200 -
+101.226.33.227 - - [15/Oct/2015 12:02:33] "GET /fhir-app/launch.html?iss=https://fhir-api-dstu2.smarthealthit.org&selected=&launch=14 HTTP/1.1" 200 -
+210.45.114.174 - - [15/Oct/2015 12:02:34] "GET /fhir-app/null?client_id=%20f0013746-dc69-46fc-94d7-362129111ffc&response_type=code&scope=launch%20launch%2Fpatient%20launch%2Fencounter%20patient%2F*.read%20user%2F*.*%20openid%20profile%20launch%3A14&redirect_uri=http%3A%2F%2Flocalhost%3A2048%2F&state=fbfd9e60-56ff-b8fa-8857-a6470a52aaa9 HTTP/1.1" 404 -
+180.153.214.180 - - [15/Oct/2015 12:02:34] code 400, message Bad request syntax ('GET /fhir-app/null?client_id= f0013746-dc69-46fc-94d7-362129111ffc&response_type=code&scope=launch launch/patient launch/encounter patient/*.read user/*.* openid profile launch:14&redirect_uri=http://localhost:2048/&state=fbfd9e60-56ff-b8fa-8857-a6470a52aaa9 HTTP/1.1')
+180.153.214.180 - - [15/Oct/2015 12:02:34] "GET /fhir-app/null?client_id= f0013746-dc69-46fc-94d7-362129111ffc&response_type=code&scope=launch launch/patient launch/encounter patient/*.read user/*.* openid profile launch:14&redirect_uri=http://localhost:2048/&state=fbfd9e60-56ff-b8fa-8857-a6470a52aaa9 HTTP/1.1" 400 -
+101.226.66.173 - - [15/Oct/2015 12:12:38] "GET /static/js/select.js HTTP/1.1" 200 -
+112.64.235.245 - - [15/Oct/2015 12:24:35] "GET /static/js/select.js HTTP/1.1" 200 -
+180.153.201.15 - - [15/Oct/2015 12:36:09] "GET /static/js/select.js HTTP/1.1" 200 -
+199.241.144.19 - - [15/Oct/2015 12:39:26] "GET / HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/deployer/GenomicsAdvisor/GenomicsAdvisor_v2/web.py", line 46, in index
+    return render_template('index.html', sample_id=session['sample_id'])
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/local.py", line 368, in <lambda>
+    __getitem__ = lambda x, i: x._get_current_object()[i]
+KeyError: 'sample_id'
+199.241.144.19 - - [15/Oct/2015 12:39:27] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+199.241.144.19 - - [15/Oct/2015 12:39:27] "GET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+199.241.144.19 - - [15/Oct/2015 12:39:28] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+199.241.144.19 - - [15/Oct/2015 12:39:29] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+199.241.144.19 - - [15/Oct/2015 12:39:29] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+199.241.144.19 - - [15/Oct/2015 12:39:29] "GET /?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+199.241.144.19 - - [15/Oct/2015 12:39:30] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+180.153.201.215 - - [15/Oct/2015 12:44:31] "GET /static/js/select.js HTTP/1.1" 200 -
+101.226.33.203 - - [15/Oct/2015 12:45:41] "GET /static/js/fhir-client.min.js HTTP/1.1" 200 -
+101.226.33.223 - - [15/Oct/2015 12:46:12] "GET /static/js/fhir-client.min.js HTTP/1.1" 200 -
+101.226.33.221 - - [15/Oct/2015 12:48:43] "GET /static/js/fhir-client.min.js HTTP/1.1" 200 -
+ * Running on http://0.0.0.0:2048/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Detected change in '/home/deployer/GenomicsAdvisor/GenomicsAdvisor_v2/config.py', reloading
+ * Restarting with stat
+199.241.144.19 - - [15/Oct/2015 13:34:53] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=9 HTTP/1.1" 302 -
+199.241.144.19 - - [15/Oct/2015 13:34:53] "GET /prompt-select-sample HTTP/1.1" 200 -
+199.241.144.19 - - [15/Oct/2015 13:34:56] "GET /callsets? HTTP/1.1" 200 -
+199.241.144.19 - - [15/Oct/2015 13:34:57] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+199.241.144.19 - - [15/Oct/2015 13:34:58] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=9 HTTP/1.1" 200 -
+112.64.235.252 - - [15/Oct/2015 13:35:10] "GET /static/js/select.js HTTP/1.1" 200 -
+Traceback (most recent call last):
+  File "core.pyx", line 337, in gevent.core.__simple_handler (gevent/core.c:4494)
+  File "/usr/lib/python2.7/dist-packages/gevent/greenlet.py", line 195, in throw
+    def throw(self, *args):
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/_reloader.py", line 223, in <lambda>
+    signal.signal(signal.SIGTERM, lambda *args: sys.exit(0))
+SystemExit: 0
+Failed to execute callback for timer fd=-1 flags=INIT
+  cb  = <bound method Greenlet.throw of <Greenlet at 0x2a0e738: <bound method Thread.__bootstrap of <Thread(Thread-1, started daemon 44099384)>>>>
+  arg = ((<Timeout at 0x2b4a1e0 seconds=0.5>,), { })
+
+184.105.206.93 - - [15/Oct/2015 13:36:41] "GET //fh-irlaunch.html HTTP/1.1" 301 -
+199.241.144.19 - - [15/Oct/2015 13:45:15] "GET / HTTP/1.1" 200 -
+199.241.144.19 - - [15/Oct/2015 13:45:15] "GET / HTTP/1.1" 200 -
+199.241.144.19 - - [15/Oct/2015 13:45:20] "GET /snps/10473108253681171589-0 HTTP/1.1" 200 -
+Traceback (most recent call last):
+  File "core.pyx", line 337, in gevent.core.__simple_handler (gevent/core.c:4494)
+  File "/usr/lib/python2.7/dist-packages/gevent/greenlet.py", line 195, in throw
+    def throw(self, *args):
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/_reloader.py", line 223, in <lambda>
+    signal.signal(signal.SIGTERM, lambda *args: sys.exit(0))
+SystemExit: 0
+Failed to execute callback for timer fd=-1 flags=INIT
+  cb  = <bound method Greenlet.throw of <Greenlet at 0x2a0e738: <bound method Thread.__bootstrap of <Thread(Thread-1, started daemon 44099384)>>>>
+  arg = ((<Timeout at 0x2be15a0 seconds=0.5>,), { })
+
+199.241.144.19 - - [15/Oct/2015 13:47:04] "GET / HTTP/1.1" 200 -
+199.241.144.19 - - [15/Oct/2015 13:47:08] "GET / HTTP/1.1" 200 -
+Traceback (most recent call last):
+  File "core.pyx", line 337, in gevent.core.__simple_handler (gevent/core.c:4494)
+  File "/usr/lib/python2.7/dist-packages/gevent/greenlet.py", line 195, in throw
+    def throw(self, *args):
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/_reloader.py", line 223, in <lambda>
+    signal.signal(signal.SIGTERM, lambda *args: sys.exit(0))
+SystemExit: 0
+Failed to execute callback for timer fd=-1 flags=INIT
+  cb  = <bound method Greenlet.throw of <Greenlet at 0x2a0e738: <bound method Thread.__bootstrap of <Thread(Thread-1, started daemon 44099384)>>>>
+  arg = ((<Timeout at 0x2bd4320 seconds=0.5>,), { })
+
+ * Running on http://0.0.0.0:2048/ (Press CTRL+C to quit)
+ * Restarting with stat
+199.241.144.19 - - [15/Oct/2015 14:03:23] "GET / HTTP/1.1" 200 -
+199.241.144.19 - - [15/Oct/2015 14:03:24] "GET /static/assets/fluid_grid_60_12_0.css HTTP/1.1" 304 -
+199.241.144.19 - - [15/Oct/2015 14:03:24] "GET /static/js/fhir-client.min.js HTTP/1.1" 304 -
+199.241.144.19 - - [15/Oct/2015 14:03:24] "GET /static/assets/main.css HTTP/1.1" 304 -
+199.241.144.19 - - [15/Oct/2015 14:03:24] "GET /static/js/jquery-1.7.2.min.js HTTP/1.1" 304 -
+199.241.144.19 - - [15/Oct/2015 14:03:24] "GET /static/js/xdate.js HTTP/1.1" 304 -
+199.241.144.19 - - [15/Oct/2015 14:03:24] "GET /static/js/flot/jquery.flot.min.js HTTP/1.1" 304 -
+199.241.144.19 - - [15/Oct/2015 14:03:24] "GET /static/js/jsonld.js HTTP/1.1" 304 -
+199.241.144.19 - - [15/Oct/2015 14:03:24] "GET /static/js/underscore.min.js HTTP/1.1" 304 -
+199.241.144.19 - - [15/Oct/2015 14:03:24] "GET /static/js/flot/jquery.flot.resize.min.js HTTP/1.1" 304 -
+199.241.144.19 - - [15/Oct/2015 14:03:24] "GET /static/js/json2.js HTTP/1.1" 304 -
+199.241.144.19 - - [15/Oct/2015 14:03:25] "GET /static/js/jquery.tools.overlay.js HTTP/1.1" 304 -
+199.241.144.19 - - [15/Oct/2015 14:03:25] "GET /static/js/highcharts.js HTTP/1.1" 304 -
+199.241.144.19 - - [15/Oct/2015 14:03:25] "GET /static/js/highcharts-more.js HTTP/1.1" 304 -
+199.241.144.19 - - [15/Oct/2015 14:03:25] "GET /static/js/main.js HTTP/1.1" 304 -
+199.241.144.19 - - [15/Oct/2015 14:03:25] "GET /static/js/genomics.js HTTP/1.1" 304 -
+199.241.144.19 - - [15/Oct/2015 14:03:25] "GET /static/assets/smart_bug.png HTTP/1.1" 304 -
+199.241.144.19 - - [15/Oct/2015 14:03:25] "GET /snp-data HTTP/1.1" 200 -
+199.241.144.19 - - [15/Oct/2015 14:04:22] "GET /snps/10473108253681171589-0 HTTP/1.1" 200 -
+199.241.144.19 - - [15/Oct/2015 14:04:26] "GET /frequencies HTTP/1.1" 200 -
+199.241.144.19 - - [15/Oct/2015 14:04:26] "GET /drug-info HTTP/1.1" 200 -
+199.241.144.19 - - [15/Oct/2015 14:04:27] "GET /static/assets/timeline_mockup.png HTTP/1.1" 304 -
+199.241.144.19 - - [15/Oct/2015 14:04:28] "GET / HTTP/1.1" 200 -
+180.153.201.216 - - [15/Oct/2015 14:04:29] "GET /static/js/select.js HTTP/1.1" 200 -
+199.241.144.19 - - [15/Oct/2015 14:04:30] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=14 HTTP/1.1" 302 -
+199.241.144.19 - - [15/Oct/2015 14:04:41] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=16 HTTP/1.1" 302 -
+199.241.144.19 - - [15/Oct/2015 14:04:42] "GET /prompt-select-sample HTTP/1.1" 200 -
+199.241.144.19 - - [15/Oct/2015 14:04:45] "GET /callsets? HTTP/1.1" 200 -
+199.241.144.19 - - [15/Oct/2015 14:04:46] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+199.241.144.19 - - [15/Oct/2015 14:04:47] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=16 HTTP/1.1" 200 -
+199.241.144.19 - - [15/Oct/2015 14:04:52] "GET /?code=MvvUL8&state=8745eafc-fde5-be63-afd1-5f3c6c04c460 HTTP/1.1" 200 -
+199.241.144.19 - - [15/Oct/2015 14:04:57] "GET /snps/10473108253681171589-0 HTTP/1.1" 200 -
+199.241.144.19 - - [15/Oct/2015 14:04:57] "GET /frequencies HTTP/1.1" 200 -
+199.241.144.19 - - [15/Oct/2015 14:04:57] "GET /drug-info HTTP/1.1" 200 -
+210.45.114.174 - - [15/Oct/2015 14:05:03] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=17 HTTP/1.1" 302 -
+210.45.114.174 - - [15/Oct/2015 14:05:03] "GET /prompt-select-sample HTTP/1.1" 200 -
+210.45.114.174 - - [15/Oct/2015 14:05:06] "GET /callsets? HTTP/1.1" 200 -
+112.65.193.13 - - [15/Oct/2015 14:05:06] "GET /fhir-app/launch.html?iss=https://fhir-api-dstu1.smarthealthit.org&launch=17 HTTP/1.1" 302 -
+112.65.193.13 - - [15/Oct/2015 14:05:06] "GET /prompt-select-sample HTTP/1.1" 200 -
+210.45.114.174 - - [15/Oct/2015 14:05:08] "GET /select-sample?sample_id=10473108253681171589-2 HTTP/1.1" 302 -
+210.45.114.174 - - [15/Oct/2015 14:05:08] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=17 HTTP/1.1" 200 -
+61.151.218.119 - - [15/Oct/2015 14:05:08] "GET /select-sample?sample_id=10473108253681171589-2 HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/deployer/GenomicsAdvisor/GenomicsAdvisor_v2/web.py", line 51, in select_sample
+    launch_args = json.loads(session['launch_args'])
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/local.py", line 368, in <lambda>
+    __getitem__ = lambda x, i: x._get_current_object()[i]
+KeyError: 'launch_args'
+180.153.214.181 - - [15/Oct/2015 14:05:09] "GET /fhir-app/launch.html?iss=https://fhir-api-dstu1.smarthealthit.org&selected=&launch=17 HTTP/1.1" 200 -
+210.45.114.174 - - [15/Oct/2015 14:05:24] "GET /?code=MMvo0q&state=6dbb22d2-d764-ba2a-e926-627e903a5310 HTTP/1.1" 200 -
+210.45.114.174 - - [15/Oct/2015 14:05:29] "GET /snps/10473108253681171589-2 HTTP/1.1" 200 -
+180.153.163.189 - - [15/Oct/2015 14:05:42] "GET /?code=MMvo0q&state=6dbb22d2-d764-ba2a-e926-627e903a5310 HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/deployer/GenomicsAdvisor/GenomicsAdvisor_v2/web.py", line 61, in index
+    return render_template('index.html', sample_id=session['sample_id'])
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/local.py", line 368, in <lambda>
+    __getitem__ = lambda x, i: x._get_current_object()[i]
+KeyError: 'sample_id'
+180.153.201.15 - - [15/Oct/2015 14:05:44] "GET /snps/10473108253681171589-2 HTTP/1.1" 200 -
+180.153.214.178 - - [15/Oct/2015 14:10:28] "GET /static/js/fhir-client.min.js HTTP/1.1" 200 -
+101.226.33.205 - - [15/Oct/2015 14:15:12] "GET /static/js/select.js HTTP/1.1" 200 -
+112.65.193.13 - - [15/Oct/2015 14:36:57] "GET /static/js/select.js HTTP/1.1" 200 -
+180.153.214.181 - - [15/Oct/2015 14:55:41] "GET /static/js/fhir-client.min.js HTTP/1.1" 200 -
+199.241.144.19 - - [16/Oct/2015 03:56:46] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=28 HTTP/1.1" 302 -
+199.241.144.19 - - [16/Oct/2015 03:56:47] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=29 HTTP/1.1" 302 -
+199.241.144.19 - - [16/Oct/2015 03:56:47] "GET /prompt-select-sample HTTP/1.1" 200 -
+199.241.144.19 - - [16/Oct/2015 03:56:48] "GET /static/js/select.js HTTP/1.1" 304 -
+199.241.144.19 - - [16/Oct/2015 03:56:55] "GET /callsets? HTTP/1.1" 200 -
+199.241.144.19 - - [16/Oct/2015 03:56:57] "GET /select-sample?sample_id=10473108253681171589-2 HTTP/1.1" 302 -
+199.241.144.19 - - [16/Oct/2015 03:56:57] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=29 HTTP/1.1" 200 -
+199.241.144.19 - - [16/Oct/2015 03:56:58] "GET /static/js/fhir-client.min.js HTTP/1.1" 304 -
+199.241.144.19 - - [16/Oct/2015 03:57:04] "GET /?code=94BmGs&state=6f6abb5d-3694-227e-1dbf-3973a33a9a1f HTTP/1.1" 200 -
+199.241.144.19 - - [16/Oct/2015 03:57:04] "GET /static/assets/main.css HTTP/1.1" 304 -
+199.241.144.19 - - [16/Oct/2015 03:57:04] "GET /static/js/jquery-1.7.2.min.js HTTP/1.1" 304 -
+199.241.144.19 - - [16/Oct/2015 03:57:04] "GET /static/assets/fluid_grid_60_12_0.css HTTP/1.1" 304 -
+199.241.144.19 - - [16/Oct/2015 03:57:04] "GET /static/js/jsonld.js HTTP/1.1" 304 -
+199.241.144.19 - - [16/Oct/2015 03:57:04] "GET /static/js/xdate.js HTTP/1.1" 304 -
+199.241.144.19 - - [16/Oct/2015 03:57:04] "GET /static/js/underscore.min.js HTTP/1.1" 304 -
+199.241.144.19 - - [16/Oct/2015 03:57:05] "GET /static/js/highcharts-more.js HTTP/1.1" 304 -
+199.241.144.19 - - [16/Oct/2015 03:57:05] "GET /static/js/highcharts.js HTTP/1.1" 304 -
+199.241.144.19 - - [16/Oct/2015 03:57:05] "GET /static/js/jquery.tools.overlay.js HTTP/1.1" 304 -
+199.241.144.19 - - [16/Oct/2015 03:57:05] "GET /static/js/flot/jquery.flot.min.js HTTP/1.1" 304 -
+199.241.144.19 - - [16/Oct/2015 03:57:05] "GET /static/js/json2.js HTTP/1.1" 304 -
+199.241.144.19 - - [16/Oct/2015 03:57:05] "GET /static/js/flot/jquery.flot.resize.min.js HTTP/1.1" 304 -
+199.241.144.19 - - [16/Oct/2015 03:57:05] "GET /static/js/main.js HTTP/1.1" 304 -
+199.241.144.19 - - [16/Oct/2015 03:57:05] "GET /static/js/genomics.js HTTP/1.1" 304 -
+199.241.144.19 - - [16/Oct/2015 03:57:05] "GET /static/assets/smart_bug.png HTTP/1.1" 304 -
+199.241.144.19 - - [16/Oct/2015 03:57:20] "GET /snps/10473108253681171589-2 HTTP/1.1" 200 -
+199.241.144.19 - - [16/Oct/2015 03:57:20] "GET /static/assets/timeline_mockup.png HTTP/1.1" 200 -
+ * Running on http://0.0.0.0:2048/ (Press CTRL+C to quit)
+ * Restarting with stat
+210.45.114.174 - - [16/Oct/2015 09:27:00] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=5 HTTP/1.1" 302 -
+210.45.114.174 - - [16/Oct/2015 09:27:01] "GET /prompt-select-sample HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 09:27:01] "GET /callsets? HTTP/1.1" 200 -
+120.210.180.149 - - [16/Oct/2015 09:27:39] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=6 HTTP/1.1" 302 -
+120.210.180.149 - - [16/Oct/2015 09:27:39] "GET /prompt-select-sample HTTP/1.1" 200 -
+120.210.180.149 - - [16/Oct/2015 09:27:42] "GET /callsets? HTTP/1.1" 200 -
+120.210.180.149 - - [16/Oct/2015 09:27:52] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+120.210.180.149 - - [16/Oct/2015 09:27:53] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=6 HTTP/1.1" 200 -
+199.241.144.19 - - [16/Oct/2015 09:28:52] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=7 HTTP/1.1" 302 -
+199.241.144.19 - - [16/Oct/2015 09:28:54] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=8 HTTP/1.1" 302 -
+199.241.144.19 - - [16/Oct/2015 09:28:54] "GET /prompt-select-sample HTTP/1.1" 200 -
+199.241.144.19 - - [16/Oct/2015 09:28:56] "GET /callsets? HTTP/1.1" 200 -
+199.241.144.19 - - [16/Oct/2015 09:28:59] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+199.241.144.19 - - [16/Oct/2015 09:28:59] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=8 HTTP/1.1" 200 -
+199.241.144.19 - - [16/Oct/2015 09:29:05] "GET /?code=ABuY8M&state=e475a68f-628e-f83a-5dc8-800ddc43a1d1 HTTP/1.1" 200 -
+199.241.144.19 - - [16/Oct/2015 09:29:09] "GET /snps/10473108253681171589-0 HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 09:31:23] "GET /select-sample?sample_id=10473108253681171589-4 HTTP/1.1" 302 -
+210.45.114.174 - - [16/Oct/2015 09:31:24] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=5 HTTP/1.1" 200 -
+101.226.66.172 - - [16/Oct/2015 09:31:24] "GET /select-sample?sample_id=10473108253681171589-4 HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/deployer/GenomicsAdvisor/GenomicsAdvisor_v2/web.py", line 51, in select_sample
+    launch_args = json.loads(session['launch_args'])
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/local.py", line 368, in <lambda>
+    __getitem__ = lambda x, i: x._get_current_object()[i]
+KeyError: 'launch_args'
+210.45.114.174 - - [16/Oct/2015 09:31:30] "GET /?code=zrBJq6&state=937da2c9-1c41-8480-b8d8-07f9a42cf7c9 HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 09:31:35] "GET /snps/10473108253681171589-4 HTTP/1.1" 200 -
+180.153.206.24 - - [16/Oct/2015 09:31:37] "GET /snps/10473108253681171589-4 HTTP/1.1" 200 -
+101.226.51.230 - - [16/Oct/2015 09:31:37] "GET /?code=zrBJq6&state=937da2c9-1c41-8480-b8d8-07f9a42cf7c9 HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/deployer/GenomicsAdvisor/GenomicsAdvisor_v2/web.py", line 61, in index
+    return render_template('index.html', sample_id=session['sample_id'])
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/local.py", line 368, in <lambda>
+    __getitem__ = lambda x, i: x._get_current_object()[i]
+KeyError: 'sample_id'
+180.153.211.172 - - [16/Oct/2015 09:37:10] "GET /static/js/fhir-client.min.js HTTP/1.1" 200 -
+199.241.144.19 - - [16/Oct/2015 09:38:37] "GET / HTTP/1.1" 200 -
+112.64.235.89 - - [16/Oct/2015 09:46:34] "GET /static/js/select.js HTTP/1.1" 200 -
+101.226.33.201 - - [16/Oct/2015 09:46:34] "GET /static/js/select.js HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 09:46:34] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=9 HTTP/1.1" 302 -
+101.226.51.228 - - [16/Oct/2015 09:46:34] "GET /fhir-app/launch.html?iss=https://fhir-api-dstu1.smarthealthit.org&launch=9 HTTP/1.1" 302 -
+101.226.51.228 - - [16/Oct/2015 09:46:35] "GET /prompt-select-sample HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 09:46:35] "GET /prompt-select-sample HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 09:46:56] "GET /callsets? HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 09:47:19] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=10 HTTP/1.1" 302 -
+210.45.114.174 - - [16/Oct/2015 09:47:19] "GET /prompt-select-sample HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 09:47:20] "GET /callsets? HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 09:47:23] "GET /select-sample?sample_id=10473108253681171589-1 HTTP/1.1" 302 -
+112.64.235.245 - - [16/Oct/2015 09:47:23] "GET /fhir-app/launch.html?iss=https://fhir-api-dstu1.smarthealthit.org&launch=10 HTTP/1.1" 302 -
+112.64.235.245 - - [16/Oct/2015 09:47:23] "GET /prompt-select-sample HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 09:47:23] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=10 HTTP/1.1" 200 -
+180.153.206.21 - - [16/Oct/2015 09:47:23] "GET /fhir-app/launch.html?iss=https://fhir-api-dstu1.smarthealthit.org&selected=&launch=10 HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 09:47:28] "GET /?code=keq6G6&state=9d8edbca-393d-ff1a-1914-8bb97f4c3652 HTTP/1.1" 200 -
+101.226.33.205 - - [16/Oct/2015 09:47:29] "GET /?code=keq6G6&state=9d8edbca-393d-ff1a-1914-8bb97f4c3652 HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/deployer/GenomicsAdvisor/GenomicsAdvisor_v2/web.py", line 61, in index
+    return render_template('index.html', sample_id=session['sample_id'])
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/local.py", line 368, in <lambda>
+    __getitem__ = lambda x, i: x._get_current_object()[i]
+KeyError: 'sample_id'
+210.45.114.174 - - [16/Oct/2015 09:47:33] "GET /snps/10473108253681171589-1 HTTP/1.1" 200 -
+112.65.193.15 - - [16/Oct/2015 09:47:47] "GET /snps/10473108253681171589-1 HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 09:54:51] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=11 HTTP/1.1" 302 -
+210.45.114.174 - - [16/Oct/2015 09:55:01] "GET /prompt-select-sample HTTP/1.1" 200 -
+112.64.235.89 - - [16/Oct/2015 09:55:01] "GET /fhir-app/launch.html?iss=https://fhir-api-dstu1.smarthealthit.org&launch=11 HTTP/1.1" 302 -
+210.45.114.174 - - [16/Oct/2015 09:55:02] "GET /callsets? HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 09:55:06] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+112.64.235.89 - - [16/Oct/2015 09:55:06] "GET /prompt-select-sample HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 09:55:06] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=11 HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 09:55:11] "GET /?code=ctEn6j&state=6531df29-043b-f1a1-f740-3e7a0bba0340 HTTP/1.1" 200 -
+180.153.201.15 - - [16/Oct/2015 09:55:11] "GET /fhir-app/launch.html?iss=https://fhir-api-dstu1.smarthealthit.org&selected=&launch=11 HTTP/1.1" 200 -
+180.153.163.206 - - [16/Oct/2015 09:55:12] "GET /?code=ctEn6j&state=6531df29-043b-f1a1-f740-3e7a0bba0340 HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/deployer/GenomicsAdvisor/GenomicsAdvisor_v2/web.py", line 61, in index
+    return render_template('index.html', sample_id=session['sample_id'])
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/local.py", line 368, in <lambda>
+    __getitem__ = lambda x, i: x._get_current_object()[i]
+KeyError: 'sample_id'
+210.45.114.174 - - [16/Oct/2015 09:55:15] "GET /snps/10473108253681171589-0 HTTP/1.1" 200 -
+180.153.206.21 - - [16/Oct/2015 10:01:44] "GET /static/js/fhir-client.min.js HTTP/1.1" 200 -
+112.64.235.245 - - [16/Oct/2015 10:06:30] "GET /static/js/select.js HTTP/1.1" 200 -
+112.64.235.89 - - [16/Oct/2015 10:13:43] "GET /static/js/select.js HTTP/1.1" 200 -
+180.153.201.15 - - [16/Oct/2015 10:14:17] "GET /static/js/fhir-client.min.js HTTP/1.1" 200 -
+199.241.144.19 - - [16/Oct/2015 10:16:07] "GET / HTTP/1.1" 200 -
+199.241.144.19 - - [16/Oct/2015 10:16:08] "GET / HTTP/1.1" 200 -
+199.241.144.19 - - [16/Oct/2015 12:33:39] "GET / HTTP/1.1" 200 -
+199.241.144.19 - - [16/Oct/2015 12:34:06] "GET /snps/10473108253681171589-0 HTTP/1.1" 200 -
+78.83.76.154 - - [16/Oct/2015 13:21:45] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=12 HTTP/1.1" 302 -
+78.83.76.154 - - [16/Oct/2015 13:21:46] "GET /prompt-select-sample HTTP/1.1" 200 -
+78.83.76.154 - - [16/Oct/2015 13:21:46] "GET /static/js/select.js HTTP/1.1" 200 -
+78.83.76.154 - - [16/Oct/2015 13:21:47] "GET /callsets? HTTP/1.1" 200 -
+78.83.76.154 - - [16/Oct/2015 13:21:47] "GET /favicon.ico HTTP/1.1" 404 -
+210.45.114.174 - - [16/Oct/2015 13:21:48] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=13 HTTP/1.1" 302 -
+210.45.114.174 - - [16/Oct/2015 13:21:48] "GET /prompt-select-sample HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 13:21:52] "GET /callsets? HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 13:21:57] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+210.45.114.174 - - [16/Oct/2015 13:21:57] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=13 HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 13:22:02] "GET /?code=F4ebR9&state=f57a73e0-d820-bdba-1f4d-cb981bbe0453 HTTP/1.1" 200 -
+101.226.65.107 - - [16/Oct/2015 13:22:02] "GET /fhir-app/launch.html?iss=https://fhir-api-dstu1.smarthealthit.org&launch=13 HTTP/1.1" 302 -
+78.83.76.154 - - [16/Oct/2015 13:22:02] "GET /select-sample?sample_id=10473108253681171589-2 HTTP/1.1" 302 -
+78.83.76.154 - - [16/Oct/2015 13:22:02] "GET /select-sample?sample_id=10473108253681171589-5 HTTP/1.1" 302 -
+78.83.76.154 - - [16/Oct/2015 13:22:02] "GET /select-sample?sample_id=10473108253681171589-5 HTTP/1.1" 302 -
+78.83.76.154 - - [16/Oct/2015 13:22:02] "GET /select-sample?sample_id=10473108253681171589-6 HTTP/1.1" 302 -
+180.153.163.209 - - [16/Oct/2015 13:22:02] "GET /fhir-app/launch.html?iss=https://fhir-api-dstu1.smarthealthit.org&selected=&launch=13 HTTP/1.1" 200 -
+180.153.206.36 - - [16/Oct/2015 13:22:02] "GET /?code=F4ebR9&state=f57a73e0-d820-bdba-1f4d-cb981bbe0453 HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/deployer/GenomicsAdvisor/GenomicsAdvisor_v2/web.py", line 61, in index
+    return render_template('index.html', sample_id=session['sample_id'])
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/local.py", line 368, in <lambda>
+    __getitem__ = lambda x, i: x._get_current_object()[i]
+KeyError: 'sample_id'
+101.226.65.107 - - [16/Oct/2015 13:22:02] "GET /prompt-select-sample HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 13:22:05] "GET /snps/10473108253681171589-0 HTTP/1.1" 200 -
+101.226.65.107 - - [16/Oct/2015 13:37:54] "GET /static/js/select.js HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 13:41:26] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=17 HTTP/1.1" 302 -
+210.45.114.174 - - [16/Oct/2015 13:41:45] "GET /prompt-select-sample HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 13:41:46] "GET /callsets? HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 13:43:07] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=18 HTTP/1.1" 302 -
+210.45.114.174 - - [16/Oct/2015 13:43:08] "GET /prompt-select-sample HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 13:43:10] "GET /callsets? HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 13:43:12] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+210.45.114.174 - - [16/Oct/2015 13:43:12] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=18 HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 13:43:18] "GET /?code=73bTiI&state=8a738f13-9eb9-1047-a3f8-78c230a74baa HTTP/1.1" 200 -
+101.226.33.220 - - [16/Oct/2015 13:43:18] "GET /fhir-app/launch.html?iss=https://fhir-api-dstu1.smarthealthit.org&selected=&launch=18 HTTP/1.1" 200 -
+112.64.235.254 - - [16/Oct/2015 13:43:19] "GET /?code=73bTiI&state=8a738f13-9eb9-1047-a3f8-78c230a74baa HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/deployer/GenomicsAdvisor/GenomicsAdvisor_v2/web.py", line 61, in index
+    return render_template('index.html', sample_id=session['sample_id'])
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/local.py", line 368, in <lambda>
+    __getitem__ = lambda x, i: x._get_current_object()[i]
+KeyError: 'sample_id'
+210.45.114.174 - - [16/Oct/2015 13:45:02] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=19 HTTP/1.1" 302 -
+210.45.114.174 - - [16/Oct/2015 13:45:02] "GET /prompt-select-sample HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 13:45:04] "GET /callsets? HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 13:45:06] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+101.226.66.174 - - [16/Oct/2015 13:45:07] "GET /fhir-app/launch.html?iss=https://fhir-api-dstu1.smarthealthit.org&launch=19 HTTP/1.1" 302 -
+101.226.66.174 - - [16/Oct/2015 13:45:07] "GET /prompt-select-sample HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 13:45:07] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=19 HTTP/1.1" 200 -
+101.226.33.206 - - [16/Oct/2015 13:45:07] "GET /fhir-app/launch.html?iss=https://fhir-api-dstu1.smarthealthit.org&selected=&launch=19 HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 13:45:13] "GET /?code=9h40pM&state=0949eae9-da6e-66b1-9503-58996905040d HTTP/1.1" 200 -
+112.64.235.89 - - [16/Oct/2015 13:45:13] "GET /?code=9h40pM&state=0949eae9-da6e-66b1-9503-58996905040d HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/deployer/GenomicsAdvisor/GenomicsAdvisor_v2/web.py", line 61, in index
+    return render_template('index.html', sample_id=session['sample_id'])
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/local.py", line 368, in <lambda>
+    __getitem__ = lambda x, i: x._get_current_object()[i]
+KeyError: 'sample_id'
+210.45.114.174 - - [16/Oct/2015 13:46:51] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=20 HTTP/1.1" 302 -
+210.45.114.174 - - [16/Oct/2015 13:46:51] "GET /prompt-select-sample HTTP/1.1" 200 -
+180.153.205.253 - - [16/Oct/2015 13:46:51] "GET /fhir-app/launch.html?iss=https://fhir-api-dstu1.smarthealthit.org&launch=20 HTTP/1.1" 302 -
+210.45.114.174 - - [16/Oct/2015 13:46:54] "GET /callsets? HTTP/1.1" 200 -
+180.153.205.253 - - [16/Oct/2015 13:46:54] "GET /prompt-select-sample HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 13:46:56] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+210.45.114.174 - - [16/Oct/2015 13:46:56] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=20 HTTP/1.1" 200 -
+180.153.201.66 - - [16/Oct/2015 13:46:57] "GET /fhir-app/launch.html?iss=https://fhir-api-dstu1.smarthealthit.org&selected=&launch=20 HTTP/1.1" 200 -
+210.45.114.174 - - [16/Oct/2015 13:47:01] "GET /?code=qoTKf7&state=9cca8af0-1def-e03e-c7ed-efd13f4d4117 HTTP/1.1" 200 -
+180.153.163.206 - - [16/Oct/2015 13:47:18] "GET /?code=qoTKf7&state=9cca8af0-1def-e03e-c7ed-efd13f4d4117 HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/deployer/GenomicsAdvisor/GenomicsAdvisor_v2/web.py", line 61, in index
+    return render_template('index.html', sample_id=session['sample_id'])
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/local.py", line 368, in <lambda>
+    __getitem__ = lambda x, i: x._get_current_object()[i]
+KeyError: 'sample_id'
+101.226.33.206 - - [16/Oct/2015 13:53:49] "GET /static/js/fhir-client.min.js HTTP/1.1" 200 -
+101.226.66.174 - - [16/Oct/2015 13:59:26] "GET /static/js/select.js HTTP/1.1" 200 -
+180.153.163.209 - - [16/Oct/2015 14:31:40] "GET /static/js/fhir-client.min.js HTTP/1.1" 200 -
+101.226.33.220 - - [16/Oct/2015 14:35:23] "GET /static/js/fhir-client.min.js HTTP/1.1" 200 -
+180.153.201.66 - - [16/Oct/2015 14:35:35] "GET /static/js/fhir-client.min.js HTTP/1.1" 200 -
+180.153.205.253 - - [16/Oct/2015 14:36:05] "GET /static/js/select.js HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:22:23] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=30 HTTP/1.1" 302 -
+70.192.34.121 - - [16/Oct/2015 17:22:23] "GET /prompt-select-sample HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:22:24] "GET /static/js/select.js HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:22:27] "GET /callsets? HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:22:27] "GET /favicon.ico HTTP/1.1" 404 -
+70.192.34.121 - - [16/Oct/2015 17:22:33] "GET /select-sample?sample_id=10473108253681171589-1 HTTP/1.1" 302 -
+70.192.34.121 - - [16/Oct/2015 17:22:33] "GET /select-sample?sample_id=10473108253681171589-1 HTTP/1.1" 302 -
+70.192.34.121 - - [16/Oct/2015 17:22:34] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=30 HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:22:34] "GET /select-sample?sample_id=10473108253681171589-1 HTTP/1.1" 302 -
+70.192.34.121 - - [16/Oct/2015 17:22:37] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=30 HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:22:38] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+70.192.34.121 - - [16/Oct/2015 17:22:38] "GET /select-sample?sample_id=10473108253681171589-1 HTTP/1.1" 302 -
+70.192.34.121 - - [16/Oct/2015 17:22:38] "GET /select-sample?sample_id=10473108253681171589-1 HTTP/1.1" 302 -
+70.192.34.121 - - [16/Oct/2015 17:22:41] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+70.192.34.121 - - [16/Oct/2015 17:22:42] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=30 HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:22:44] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+70.192.34.121 - - [16/Oct/2015 17:22:48] "GET /callsets?pageToken=CIX5gpf8jv2rkQEQCg HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:22:48] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+70.192.34.121 - - [16/Oct/2015 17:22:48] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+70.192.34.121 - - [16/Oct/2015 17:22:49] "GET /select-sample?sample_id=10473108253681171589-2 HTTP/1.1" 302 -
+70.192.34.121 - - [16/Oct/2015 17:22:50] "GET /select-sample?sample_id=10473108253681171589-2 HTTP/1.1" 302 -
+70.192.34.121 - - [16/Oct/2015 17:22:52] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=30 HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:22:52] "GET /select-sample?sample_id=10473108253681171589-12 HTTP/1.1" 302 -
+70.192.34.121 - - [16/Oct/2015 17:22:52] "GET /select-sample?sample_id=10473108253681171589-12 HTTP/1.1" 302 -
+70.192.34.121 - - [16/Oct/2015 17:22:53] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=30 HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:22:56] "GET /static/js/fhir-client.min.js HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:23:20] "GET /?code=D1B2k7&state=48a486b0-ae90-2a11-cd8c-284d7d91de4d HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:23:20] "GET /static/assets/fluid_grid_60_12_0.css HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:23:20] "GET /static/assets/main.css HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:23:20] "GET /static/js/xdate.js HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:23:20] "GET /static/js/jquery-1.7.2.min.js HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:23:21] "GET /static/js/jsonld.js HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:23:21] "GET /static/js/flot/jquery.flot.min.js HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:23:21] "GET /static/js/flot/jquery.flot.resize.min.js HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:23:21] "GET /static/js/underscore.min.js HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:23:21] "GET /static/js/json2.js HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:23:21] "GET /static/js/jquery.tools.overlay.js HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:23:22] "GET /static/js/highcharts.js HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:23:23] "GET /static/js/highcharts-more.js HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:23:23] "GET /static/js/main.js HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:23:23] "GET /static/assets/smart_bug.png HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:23:23] "GET /static/js/genomics.js HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:23:24] "GET /static/assets/timeline_mockup.png HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:23:24] "GET /frequencies HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:23:24] "GET /snp-data HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:23:47] "GET /snps/10473108253681171589-12 HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:23:47] "GET /drug-info HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:25:02] "GET /?code=5N2K6Q&state=48a486b0-ae90-2a11-cd8c-284d7d91de4d HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:25:02] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=31 HTTP/1.1" 302 -
+70.192.34.121 - - [16/Oct/2015 17:25:03] "GET /prompt-select-sample HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:25:04] "GET /callsets? HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:25:05] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+70.192.34.121 - - [16/Oct/2015 17:25:05] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=31 HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:25:06] "GET /?code=xuKa2V&state=4de7d959-ec03-dd91-e933-e581471d1eb2 HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:25:09] "GET /snps/10473108253681171589-0 HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:25:55] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=32 HTTP/1.1" 302 -
+70.192.34.121 - - [16/Oct/2015 17:25:55] "GET /prompt-select-sample HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:25:55] "GET /callsets? HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:26:00] "GET /select-sample?sample_id=10473108253681171589-3 HTTP/1.1" 302 -
+70.192.34.121 - - [16/Oct/2015 17:26:00] "GET /select-sample?sample_id=10473108253681171589-1 HTTP/1.1" 302 -
+70.192.34.121 - - [16/Oct/2015 17:26:00] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=32 HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:26:00] "GET /select-sample?sample_id=10473108253681171589-3 HTTP/1.1" 302 -
+70.192.34.121 - - [16/Oct/2015 17:26:01] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=32 HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:26:02] "GET /?code=qUei8m&state=eaca43ac-1a51-6aa9-c0c2-ffadd2b570ed HTTP/1.1" 200 -
+70.192.34.121 - - [16/Oct/2015 17:26:05] "GET /snps/10473108253681171589-3 HTTP/1.1" 200 -
+216.239.45.70 - - [16/Oct/2015 23:18:38] "GET / HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/deployer/GenomicsAdvisor/GenomicsAdvisor_v2/web.py", line 61, in index
+    return render_template('index.html', sample_id=session['sample_id'])
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/local.py", line 368, in <lambda>
+    __getitem__ = lambda x, i: x._get_current_object()[i]
+KeyError: 'sample_id'
+216.239.45.70 - - [16/Oct/2015 23:18:38] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+216.239.45.70 - - [16/Oct/2015 23:18:38] "GET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+216.239.45.70 - - [16/Oct/2015 23:18:38] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+216.239.45.70 - - [16/Oct/2015 23:18:38] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+216.239.45.70 - - [16/Oct/2015 23:18:38] "GET /?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+216.239.45.70 - - [16/Oct/2015 23:18:38] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+216.239.45.70 - - [16/Oct/2015 23:18:54] "GET /asdf HTTP/1.1" 404 -
+216.239.45.70 - - [16/Oct/2015 23:20:45] "GET /favicon.ico HTTP/1.1" 404 -
+202.37.75.230 - - [18/Oct/2015 19:57:16] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=1 HTTP/1.1" 302 -
+202.37.75.230 - - [18/Oct/2015 19:57:16] "GET /prompt-select-sample HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 19:57:16] "GET /static/js/select.js HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 19:57:22] "GET /callsets? HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 19:57:22] "GET /favicon.ico HTTP/1.1" 404 -
+202.37.75.230 - - [18/Oct/2015 19:57:24] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+202.37.75.230 - - [18/Oct/2015 19:57:24] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=1 HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 19:57:25] "GET /static/js/fhir-client.min.js HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 19:58:04] "GET /?code=j8zMVs&state=3784034c-96ff-116d-0b69-d34a30e59cea HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 19:58:04] "GET /static/assets/fluid_grid_60_12_0.css HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 19:58:04] "GET /static/assets/main.css HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 19:58:04] "GET /static/js/jquery-1.7.2.min.js HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 19:58:04] "GET /static/js/xdate.js HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 19:58:04] "GET /static/js/jsonld.js HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 19:58:05] "GET /static/js/flot/jquery.flot.min.js HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 19:58:05] "GET /static/js/flot/jquery.flot.resize.min.js HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 19:58:05] "GET /static/js/underscore.min.js HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 19:58:05] "GET /static/js/json2.js HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 19:58:05] "GET /static/js/jquery.tools.overlay.js HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 19:58:05] "GET /static/js/highcharts.js HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 19:58:06] "GET /static/js/highcharts-more.js HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 19:58:06] "GET /static/js/main.js HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 19:58:06] "GET /static/js/genomics.js HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 19:58:06] "GET /static/assets/smart_bug.png HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 19:58:06] "GET /static/assets/timeline_mockup.png HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 19:58:07] "GET /snp-data HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 19:58:11] "GET /snps/10473108253681171589-0 HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 19:58:11] "GET /frequencies HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 19:58:11] "GET /drug-info HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 20:01:13] "GET / HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 22:01:08] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=3 HTTP/1.1" 302 -
+202.37.75.230 - - [18/Oct/2015 22:01:09] "GET /prompt-select-sample HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 22:01:16] "GET /callsets? HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 22:01:18] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+202.37.75.230 - - [18/Oct/2015 22:01:19] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=3 HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 22:01:20] "GET /?code=zrpjPK&state=1662b131-90e9-2e90-df52-6cb16b3f32ad HTTP/1.1" 200 -
+202.37.75.230 - - [18/Oct/2015 22:01:29] "GET /snps/10473108253681171589-0 HTTP/1.1" 200 -
+104.246.41.116 - - [20/Oct/2015 14:41:50] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=5 HTTP/1.1" 302 -
+104.246.41.116 - - [20/Oct/2015 14:41:50] "GET /prompt-select-sample HTTP/1.1" 200 -
+104.246.41.116 - - [20/Oct/2015 14:41:50] "GET /static/js/select.js HTTP/1.1" 200 -
+104.246.41.116 - - [20/Oct/2015 14:42:01] "GET /callsets? HTTP/1.1" 200 -
+104.246.41.116 - - [20/Oct/2015 14:42:01] "GET /favicon.ico HTTP/1.1" 404 -
+104.246.41.116 - - [20/Oct/2015 14:42:06] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+104.246.41.116 - - [20/Oct/2015 14:42:06] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=5 HTTP/1.1" 200 -
+104.246.41.116 - - [20/Oct/2015 14:42:07] "GET /static/js/fhir-client.min.js HTTP/1.1" 200 -
+104.246.41.116 - - [20/Oct/2015 14:42:20] "GET /?code=MjdYOG&state=11175ff6-2f5a-a35d-d3f6-9e3a0525f1bf HTTP/1.1" 200 -
+104.246.41.116 - - [20/Oct/2015 14:42:20] "GET /static/assets/fluid_grid_60_12_0.css HTTP/1.1" 200 -
+104.246.41.116 - - [20/Oct/2015 14:42:20] "GET /static/assets/main.css HTTP/1.1" 200 -
+104.246.41.116 - - [20/Oct/2015 14:42:20] "GET /static/js/jquery-1.7.2.min.js HTTP/1.1" 200 -
+104.246.41.116 - - [20/Oct/2015 14:42:20] "GET /static/js/xdate.js HTTP/1.1" 200 -
+104.246.41.116 - - [20/Oct/2015 14:42:20] "GET /static/js/jsonld.js HTTP/1.1" 200 -
+104.246.41.116 - - [20/Oct/2015 14:42:20] "GET /static/js/flot/jquery.flot.min.js HTTP/1.1" 200 -
+104.246.41.116 - - [20/Oct/2015 14:42:20] "GET /static/js/flot/jquery.flot.resize.min.js HTTP/1.1" 200 -
+104.246.41.116 - - [20/Oct/2015 14:42:20] "GET /static/js/underscore.min.js HTTP/1.1" 200 -
+104.246.41.116 - - [20/Oct/2015 14:42:20] "GET /static/js/json2.js HTTP/1.1" 200 -
+104.246.41.116 - - [20/Oct/2015 14:42:20] "GET /static/js/jquery.tools.overlay.js HTTP/1.1" 200 -
+104.246.41.116 - - [20/Oct/2015 14:42:20] "GET /static/js/highcharts.js HTTP/1.1" 200 -
+104.246.41.116 - - [20/Oct/2015 14:42:21] "GET /static/js/main.js HTTP/1.1" 200 -
+104.246.41.116 - - [20/Oct/2015 14:42:21] "GET /static/js/highcharts-more.js HTTP/1.1" 200 -
+104.246.41.116 - - [20/Oct/2015 14:42:21] "GET /static/js/genomics.js HTTP/1.1" 200 -
+104.246.41.116 - - [20/Oct/2015 14:42:21] "GET /static/assets/smart_bug.png HTTP/1.1" 200 -
+104.246.41.116 - - [20/Oct/2015 14:42:21] "GET /static/assets/timeline_mockup.png HTTP/1.1" 200 -
+104.246.41.116 - - [20/Oct/2015 14:42:21] "GET /snp-data HTTP/1.1" 200 -
+104.246.41.116 - - [20/Oct/2015 14:42:21] "GET /frequencies HTTP/1.1" 200 -
+104.246.41.116 - - [20/Oct/2015 14:42:21] "GET /drug-info HTTP/1.1" 200 -
+104.246.41.116 - - [20/Oct/2015 14:42:30] "GET /snps/10473108253681171589-0 HTTP/1.1" 200 -
+ * Running on http://0.0.0.0:2048/ (Press CTRL+C to quit)
+ * Restarting with stat
+134.174.21.4 - - [06/Nov/2015 14:25:52] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=7 HTTP/1.1" 302 -
+134.174.21.4 - - [06/Nov/2015 14:25:52] "GET /prompt-select-sample HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:25:52] "GET /static/js/select.js HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:25:55] "GET /callsets? HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:25:55] "GET /favicon.ico HTTP/1.1" 404 -
+134.174.21.4 - - [06/Nov/2015 14:25:57] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+134.174.21.4 - - [06/Nov/2015 14:25:57] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=7 HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:25:57] "GET /static/js/fhir-client.min.js HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:25:58] "GET /?code=SVXCAu&state=748b97a6-dbe4-393e-5ad2-510193457cea HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:25:58] "GET /static/assets/fluid_grid_60_12_0.css HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:25:58] "GET /static/assets/main.css HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:25:58] "GET /static/js/jquery-1.7.2.min.js HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:25:59] "GET /static/js/xdate.js HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:25:59] "GET /static/js/flot/jquery.flot.min.js HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:25:59] "GET /static/js/jsonld.js HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:25:59] "GET /static/js/flot/jquery.flot.resize.min.js HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:25:59] "GET /static/js/underscore.min.js HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:25:59] "GET /static/js/json2.js HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:25:59] "GET /static/js/jquery.tools.overlay.js HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:25:59] "GET /static/js/highcharts.js HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:25:59] "GET /static/js/highcharts-more.js HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:25:59] "GET /static/js/main.js HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:25:59] "GET /static/js/genomics.js HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:25:59] "GET /static/assets/smart_bug.png HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:26:00] "GET /static/assets/timeline_mockup.png HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:26:00] "GET /snp-data HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:26:05] "GET /snps/10473108253681171589-0 HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:26:05] "GET /drug-info HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:26:05] "GET /frequencies HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:28:44] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=8 HTTP/1.1" 302 -
+134.174.21.4 - - [06/Nov/2015 14:28:44] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=9 HTTP/1.1" 302 -
+134.174.21.4 - - [06/Nov/2015 14:28:44] "GET /prompt-select-sample HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:28:44] "GET /prompt-select-sample HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:28:47] "GET /callsets? HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:28:49] "GET /callsets? HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:28:51] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+134.174.21.4 - - [06/Nov/2015 14:28:51] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=9 HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 14:28:52] "GET /?code=0METbH&state=ff2625a4-5c48-e999-8993-d4e5d0d9d9f5 HTTP/1.1" 200 -
+107.178.194.89 - - [06/Nov/2015 15:28:50] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=12 HTTP/1.1" 302 -
+107.178.194.97 - - [06/Nov/2015 15:28:51] "GET /prompt-select-sample HTTP/1.1" 200 -
+107.178.194.89 - - [06/Nov/2015 15:28:52] "GET /static/js/select.js HTTP/1.1" 200 -
+107.178.194.97 - - [06/Nov/2015 15:28:53] "GET /favicon.ico HTTP/1.1" 404 -
+107.178.194.97 - - [06/Nov/2015 15:28:56] "GET /callsets? HTTP/1.1" 200 -
+107.178.194.93 - - [06/Nov/2015 15:28:58] "GET /select-sample?sample_id=10473108253681171589-3 HTTP/1.1" 302 -
+107.178.194.89 - - [06/Nov/2015 15:28:59] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=12 HTTP/1.1" 200 -
+107.178.194.97 - - [06/Nov/2015 15:29:00] "GET /static/js/fhir-client.min.js HTTP/1.1" 200 -
+107.178.194.93 - - [06/Nov/2015 15:29:20] "GET /?code=4WgiFh&state=59275e04-2743-0a33-69a9-50b282211657 HTTP/1.1" 200 -
+107.178.194.89 - - [06/Nov/2015 15:29:20] "GET /static/js/flot/jquery.flot.min.js HTTP/1.1" 200 -
+107.178.194.97 - - [06/Nov/2015 15:29:20] "GET /static/js/xdate.js HTTP/1.1" 200 -
+107.178.194.93 - - [06/Nov/2015 15:29:20] "GET /static/assets/fluid_grid_60_12_0.css HTTP/1.1" 200 -
+107.178.194.97 - - [06/Nov/2015 15:29:20] "GET /static/js/jquery-1.7.2.min.js HTTP/1.1" 200 -
+107.178.194.97 - - [06/Nov/2015 15:29:20] "GET /static/assets/main.css HTTP/1.1" 200 -
+107.178.194.93 - - [06/Nov/2015 15:29:20] "GET /static/js/jsonld.js HTTP/1.1" 200 -
+107.178.194.97 - - [06/Nov/2015 15:29:21] "GET /static/js/json2.js HTTP/1.1" 200 -
+107.178.194.97 - - [06/Nov/2015 15:29:21] "GET /static/js/underscore.min.js HTTP/1.1" 200 -
+107.178.194.93 - - [06/Nov/2015 15:29:21] "GET /static/js/flot/jquery.flot.resize.min.js HTTP/1.1" 200 -
+107.178.194.97 - - [06/Nov/2015 15:29:21] "GET /static/js/jquery.tools.overlay.js HTTP/1.1" 200 -
+107.178.194.97 - - [06/Nov/2015 15:29:22] "GET /static/js/highcharts.js HTTP/1.1" 200 -
+107.178.194.89 - - [06/Nov/2015 15:29:22] "GET /static/js/highcharts-more.js HTTP/1.1" 200 -
+107.178.194.97 - - [06/Nov/2015 15:29:22] "GET /static/js/main.js HTTP/1.1" 200 -
+107.178.194.97 - - [06/Nov/2015 15:29:22] "GET /static/js/genomics.js HTTP/1.1" 200 -
+107.178.194.97 - - [06/Nov/2015 15:29:32] "GET /snps/10473108253681171589-3 HTTP/1.1" 200 -
+107.178.194.97 - - [06/Nov/2015 15:29:32] "GET /static/assets/smart_bug.png HTTP/1.1" 200 -
+107.178.194.97 - - [06/Nov/2015 15:29:32] "GET /static/assets/timeline_mockup.png HTTP/1.1" 200 -
+107.178.194.89 - - [06/Nov/2015 15:29:32] "GET /drug-info HTTP/1.1" 200 -
+107.178.194.93 - - [06/Nov/2015 15:29:32] "GET /frequencies HTTP/1.1" 200 -
+107.178.194.97 - - [06/Nov/2015 15:29:32] "GET /snp-data HTTP/1.1" 200 -
+107.178.194.97 - - [06/Nov/2015 15:39:07] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=13 HTTP/1.1" 302 -
+107.178.194.93 - - [06/Nov/2015 15:39:08] "GET /prompt-select-sample HTTP/1.1" 200 -
+107.178.194.97 - - [06/Nov/2015 15:39:10] "GET /callsets? HTTP/1.1" 200 -
+107.178.194.93 - - [06/Nov/2015 15:39:16] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+107.178.194.89 - - [06/Nov/2015 15:39:16] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=13 HTTP/1.1" 200 -
+107.178.194.93 - - [06/Nov/2015 15:39:17] "GET /?code=zY1miC&state=4275e538-2194-05dc-a9de-e6fa77abcfb1 HTTP/1.1" 200 -
+107.178.194.93 - - [06/Nov/2015 15:39:18] "GET /snp-data HTTP/1.1" 200 -
+107.178.194.93 - - [06/Nov/2015 15:39:18] "GET /frequencies HTTP/1.1" 200 -
+107.178.194.89 - - [06/Nov/2015 15:39:18] "GET /drug-info HTTP/1.1" 200 -
+107.178.194.97 - - [06/Nov/2015 15:39:22] "GET /snps/10473108253681171589-0 HTTP/1.1" 200 -
+134.174.140.216 - - [06/Nov/2015 15:53:14] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=14 HTTP/1.1" 302 -
+134.174.140.216 - - [06/Nov/2015 15:53:14] "GET /prompt-select-sample HTTP/1.1" 200 -
+134.174.140.216 - - [06/Nov/2015 15:53:17] "GET /callsets? HTTP/1.1" 200 -
+134.174.140.216 - - [06/Nov/2015 15:53:18] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+134.174.140.216 - - [06/Nov/2015 15:53:18] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=14 HTTP/1.1" 200 -
+134.174.140.216 - - [06/Nov/2015 15:53:19] "GET /?code=2LPyvJ&state=de4a4f29-d9be-9516-60f9-68ff95f2fe18 HTTP/1.1" 200 -
+134.174.140.216 - - [06/Nov/2015 15:53:23] "GET /snps/10473108253681171589-0 HTTP/1.1" 200 -
+107.178.194.89 - - [06/Nov/2015 15:59:50] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=16 HTTP/1.1" 302 -
+107.178.194.93 - - [06/Nov/2015 15:59:50] "GET /prompt-select-sample HTTP/1.1" 200 -
+107.178.194.89 - - [06/Nov/2015 15:59:51] "GET /callsets? HTTP/1.1" 200 -
+107.178.194.97 - - [06/Nov/2015 15:59:56] "GET /select-sample?sample_id=10473108253681171589-3 HTTP/1.1" 302 -
+107.178.194.93 - - [06/Nov/2015 15:59:56] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=16 HTTP/1.1" 200 -
+107.178.194.93 - - [06/Nov/2015 15:59:58] "GET /?code=v03mxr&state=ad38cc14-5ba9-f385-ddd5-6b3c2a09399a HTTP/1.1" 200 -
+107.178.194.89 - - [06/Nov/2015 15:59:58] "GET /snp-data HTTP/1.1" 200 -
+107.178.194.93 - - [06/Nov/2015 16:00:01] "GET /snps/10473108253681171589-3 HTTP/1.1" 200 -
+107.178.194.97 - - [06/Nov/2015 16:00:01] "GET /frequencies HTTP/1.1" 200 -
+107.178.194.93 - - [06/Nov/2015 16:00:01] "GET /drug-info HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 18:31:55] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=17 HTTP/1.1" 302 -
+134.174.21.4 - - [06/Nov/2015 18:31:55] "GET /prompt-select-sample HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 18:32:26] "GET /callsets? HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 18:32:29] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+134.174.21.4 - - [06/Nov/2015 18:32:29] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=17 HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 18:32:30] "GET /?code=2tFkbn&state=237488ae-9075-3475-fbfe-aba630257a6b HTTP/1.1" 200 -
+134.174.21.4 - - [06/Nov/2015 18:32:33] "GET /snps/10473108253681171589-0 HTTP/1.1" 200 -
+120.209.165.157 - - [07/Nov/2015 02:14:35] "GET / HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/deployer/GenomicsAdvisor/GenomicsAdvisor_v2/web.py", line 61, in index
+    return render_template('index.html', sample_id=session['sample_id'])
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/local.py", line 368, in <lambda>
+    __getitem__ = lambda x, i: x._get_current_object()[i]
+KeyError: 'sample_id'
+120.209.165.157 - - [07/Nov/2015 02:14:38] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+120.209.165.157 - - [07/Nov/2015 02:14:38] "GET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+120.209.165.157 - - [07/Nov/2015 02:14:42] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+120.209.165.157 - - [07/Nov/2015 02:14:44] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+120.209.165.157 - - [07/Nov/2015 02:14:44] "GET /?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+120.209.165.157 - - [07/Nov/2015 02:14:45] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+120.209.165.157 - - [07/Nov/2015 02:14:50] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+120.210.162.137 - - [09/Nov/2015 16:01:45] "GET / HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/deployer/GenomicsAdvisor/GenomicsAdvisor_v2/web.py", line 61, in index
+    return render_template('index.html', sample_id=session['sample_id'])
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/local.py", line 368, in <lambda>
+    __getitem__ = lambda x, i: x._get_current_object()[i]
+KeyError: 'sample_id'
+120.210.162.137 - - [09/Nov/2015 16:01:46] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+120.210.162.137 - - [09/Nov/2015 16:01:46] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+120.210.162.137 - - [09/Nov/2015 16:01:46] "GET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+120.210.162.137 - - [09/Nov/2015 16:01:48] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+120.210.162.137 - - [09/Nov/2015 16:01:48] "GET /?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+120.210.162.137 - - [09/Nov/2015 16:01:48] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+120.210.166.222 - - [10/Nov/2015 04:43:49] "GET / HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/deployer/GenomicsAdvisor/GenomicsAdvisor_v2/web.py", line 61, in index
+    return render_template('index.html', sample_id=session['sample_id'])
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/local.py", line 368, in <lambda>
+    __getitem__ = lambda x, i: x._get_current_object()[i]
+KeyError: 'sample_id'
+120.210.166.222 - - [10/Nov/2015 04:43:50] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+120.210.166.222 - - [10/Nov/2015 04:43:50] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+120.210.166.222 - - [10/Nov/2015 04:43:50] "GET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+120.210.166.222 - - [10/Nov/2015 04:43:51] "GET /?__debugger__=yes&cmd=resource&f=source.png HTTP/1.1" 200 -
+120.210.166.222 - - [10/Nov/2015 04:43:51] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+120.210.166.222 - - [10/Nov/2015 04:43:52] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+134.174.21.158 - - [25/Nov/2015 19:11:33] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=7 HTTP/1.1" 302 -
+134.174.21.158 - - [25/Nov/2015 19:11:33] "GET /prompt-select-sample HTTP/1.1" 200 -
+134.174.21.158 - - [25/Nov/2015 19:11:34] "GET /static/js/select.js HTTP/1.1" 200 -
+134.174.21.158 - - [25/Nov/2015 19:11:35] "GET /callsets? HTTP/1.1" 200 -
+134.174.21.158 - - [25/Nov/2015 19:11:35] "GET /favicon.ico HTTP/1.1" 404 -
+134.174.21.158 - - [25/Nov/2015 19:11:37] "GET /select-sample?sample_id=10473108253681171589-3 HTTP/1.1" 302 -
+134.174.21.158 - - [25/Nov/2015 19:11:37] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=7 HTTP/1.1" 200 -
+134.174.21.158 - - [25/Nov/2015 19:11:37] "GET /static/js/fhir-client.min.js HTTP/1.1" 200 -
+218.22.21.23 - - [28/Nov/2015 04:28:21] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=2 HTTP/1.1" 302 -
+218.22.21.23 - - [28/Nov/2015 04:28:22] "GET /prompt-select-sample HTTP/1.1" 200 -
+112.64.235.91 - - [28/Nov/2015 04:28:22] "GET /fhir-app/launch.html?iss=https://fhir-api-dstu1.smarthealthit.org&launch=2 HTTP/1.1" 302 -
+112.64.235.91 - - [28/Nov/2015 04:28:22] "GET /prompt-select-sample HTTP/1.1" 200 -
+218.22.21.23 - - [28/Nov/2015 04:28:22] "GET /static/js/select.js HTTP/1.1" 200 -
+218.22.21.23 - - [28/Nov/2015 04:28:36] "GET /callsets? HTTP/1.1" 200 -
+218.22.21.23 - - [28/Nov/2015 04:28:36] "GET /favicon.ico HTTP/1.1" 404 -
+101.226.51.227 - - [28/Nov/2015 04:28:36] "GET /callsets HTTP/1.1" 200 -
+218.22.21.23 - - [28/Nov/2015 04:28:37] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+180.153.206.38 - - [28/Nov/2015 04:28:39] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/deployer/GenomicsAdvisor/GenomicsAdvisor_v2/web.py", line 51, in select_sample
+    launch_args = json.loads(session['launch_args'])
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/local.py", line 368, in <lambda>
+    __getitem__ = lambda x, i: x._get_current_object()[i]
+KeyError: 'launch_args'
+ * Running on http://0.0.0.0:2048/ (Press CTRL+C to quit)
+Traceback (most recent call last):
+  File "web.py", line 147, in <module>
+    app.run(port=2048, debug=True, host='0.0.0.0')
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 772, in run
+    run_simple(host, port, self, **options)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 618, in run_simple
+    test_socket.bind((hostname, port))
+  File "<string>", line 1, in bind
+socket.error: [Errno 98] Address already in use
+ * Running on http://0.0.0.0:2048/ (Press CTRL+C to quit)
+Traceback (most recent call last):
+  File "web.py", line 147, in <module>
+    app.run(port=2048, debug=True, host='0.0.0.0')
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 772, in run
+    run_simple(host, port, self, **options)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 618, in run_simple
+    test_socket.bind((hostname, port))
+  File "<string>", line 1, in bind
+socket.error: [Errno 98] Address already in use
+ * Running on http://0.0.0.0:2048/ (Press CTRL+C to quit)
+Traceback (most recent call last):
+  File "web.py", line 147, in <module>
+    app.run(port=2048, debug=True, host='0.0.0.0')
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 772, in run
+    run_simple(host, port, self, **options)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 618, in run_simple
+    test_socket.bind((hostname, port))
+  File "<string>", line 1, in bind
+socket.error: [Errno 98] Address already in use
+  File "web.py", line 147
+    app.run(port=1028, debug=True, host='0.0.0.0'))
+                                                  ^
+SyntaxError: invalid syntax
+ * Running on http://0.0.0.0:1028/ (Press CTRL+C to quit)
+ * Restarting with stat
+134.174.21.4 - - [28/Jan/2016 15:25:22] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=46 HTTP/1.1" 302 -
+ * Running on http://0.0.0.0:1028/ (Press CTRL+C to quit)
+Traceback (most recent call last):
+  File "web.py", line 147, in <module>
+    app.run(port=1028, debug=True, host='0.0.0.0')
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 772, in run
+    run_simple(host, port, self, **options)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 618, in run_simple
+    test_socket.bind((hostname, port))
+  File "<string>", line 1, in bind
+socket.error: [Errno 98] Address already in use
+134.174.21.4 - - [28/Jan/2016 15:27:33] "GET /prompt-select-sample HTTP/1.1" 200 -
+134.174.21.4 - - [28/Jan/2016 15:27:34] "GET /callsets? HTTP/1.1" 200 -
+134.174.21.4 - - [28/Jan/2016 15:27:34] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=47 HTTP/1.1" 302 -
+134.174.21.4 - - [28/Jan/2016 15:27:34] "GET /prompt-select-sample HTTP/1.1" 200 -
+134.174.21.4 - - [28/Jan/2016 15:27:35] "GET /callsets? HTTP/1.1" 200 -
+134.174.21.4 - - [28/Jan/2016 15:27:41] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=48 HTTP/1.1" 302 -
+134.174.21.4 - - [28/Jan/2016 15:27:41] "GET /prompt-select-sample HTTP/1.1" 200 -
+134.174.21.4 - - [28/Jan/2016 15:27:42] "GET /callsets? HTTP/1.1" 200 -
+134.174.21.4 - - [28/Jan/2016 15:27:52] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=49 HTTP/1.1" 302 -
+134.174.21.4 - - [28/Jan/2016 15:27:52] "GET /prompt-select-sample HTTP/1.1" 200 -
+134.174.21.4 - - [28/Jan/2016 15:27:53] "GET /callsets? HTTP/1.1" 200 -
+129.176.197.23 - - [28/Jan/2016 17:58:19] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&launch=50 HTTP/1.1" 302 -
+129.176.197.23 - - [28/Jan/2016 17:58:20] "GET /prompt-select-sample HTTP/1.1" 200 -
+129.176.197.23 - - [28/Jan/2016 17:58:20] "GET /static/js/select.js HTTP/1.1" 200 -
+129.176.197.23 - - [28/Jan/2016 17:58:20] "GET /callsets? HTTP/1.1" 200 -
+129.176.197.23 - - [28/Jan/2016 17:58:20] "GET /favicon.ico HTTP/1.1" 404 -
+129.176.197.23 - - [28/Jan/2016 17:58:27] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+129.176.197.23 - - [28/Jan/2016 17:58:27] "GET /fhir-app/launch.html?iss=https%3A%2F%2Ffhir-api-dstu1.smarthealthit.org&selected=&launch=50 HTTP/1.1" 200 -
+129.176.197.23 - - [28/Jan/2016 17:58:27] "GET /static/js/fhir-client.min.js HTTP/1.1" 200 -
+129.176.197.23 - - [28/Jan/2016 17:59:21] "GET /?code=cebEhT&state=609b52a8-1ad2-0f4c-e2e7-b00a9fcd54c5 HTTP/1.1" 200 -
+129.176.197.23 - - [28/Jan/2016 17:59:22] "GET /static/assets/main.css HTTP/1.1" 200 -
+129.176.197.23 - - [28/Jan/2016 17:59:22] "GET /static/assets/fluid_grid_60_12_0.css HTTP/1.1" 200 -
+129.176.197.23 - - [28/Jan/2016 17:59:22] "GET /static/js/jquery-1.7.2.min.js HTTP/1.1" 200 -
+129.176.197.23 - - [28/Jan/2016 17:59:22] "GET /static/js/jsonld.js HTTP/1.1" 200 -
+129.176.197.23 - - [28/Jan/2016 17:59:22] "GET /static/js/xdate.js HTTP/1.1" 200 -
+129.176.197.23 - - [28/Jan/2016 17:59:22] "GET /static/js/flot/jquery.flot.min.js HTTP/1.1" 200 -
+129.176.197.23 - - [28/Jan/2016 17:59:22] "GET /static/js/flot/jquery.flot.resize.min.js HTTP/1.1" 200 -
+129.176.197.23 - - [28/Jan/2016 17:59:22] "GET /static/js/underscore.min.js HTTP/1.1" 200 -
+129.176.197.23 - - [28/Jan/2016 17:59:22] "GET /static/js/json2.js HTTP/1.1" 200 -
+129.176.197.23 - - [28/Jan/2016 17:59:22] "GET /static/js/jquery.tools.overlay.js HTTP/1.1" 200 -
+129.176.197.23 - - [28/Jan/2016 17:59:22] "GET /static/js/highcharts.js HTTP/1.1" 200 -
+129.176.197.23 - - [28/Jan/2016 17:59:22] "GET /static/js/highcharts-more.js HTTP/1.1" 200 -
+129.176.197.23 - - [28/Jan/2016 17:59:22] "GET /static/js/main.js HTTP/1.1" 200 -
+129.176.197.23 - - [28/Jan/2016 17:59:23] "GET /static/js/genomics.js HTTP/1.1" 200 -
+129.176.197.23 - - [28/Jan/2016 17:59:23] "GET /static/assets/smart_bug.png HTTP/1.1" 200 -
+129.176.197.23 - - [28/Jan/2016 17:59:23] "GET /static/assets/timeline_mockup.png HTTP/1.1" 200 -
+129.176.197.23 - - [28/Jan/2016 17:59:23] "GET /snp-data HTTP/1.1" 200 -
+129.176.197.23 - - [28/Jan/2016 17:59:23] "GET /frequencies HTTP/1.1" 200 -
+129.176.197.23 - - [28/Jan/2016 17:59:23] "GET /drug-info HTTP/1.1" 200 -
+ * Running on http://0.0.0.0:1028/ (Press CTRL+C to quit)
+ * Restarting with stat
+209.6.93.214 - - [16/Feb/2016 04:07:37] "GET /fhir-app/launch.html?launch=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0%3D.eyJwYXRpZW50IjoiMTI4ODk5MiIsIm5lZWRfcGF0aWVudF9iYW5uZXIiOnRydWUsInNtYXJ0X3N0eWxlX3VybCI6Imh0dHBzOi8vZ2FsbGVyeS1zdHlsZXMuc21hcnRoZWFsdGhpdC5vcmcvc3R5bGVzL3YxLjIuMTIifQ%3D%3D.&iss=https%3A%2F%2Fstub.smarthealthit.org%2Fsmart%2Fdstu1 HTTP/1.1" 302 -
+209.6.93.214 - - [16/Feb/2016 04:07:37] "GET /prompt-select-sample HTTP/1.1" 200 -
+209.6.93.214 - - [16/Feb/2016 04:07:37] "GET /static/js/select.js HTTP/1.1" 200 -
+209.6.93.214 - - [16/Feb/2016 04:07:45] "GET /callsets? HTTP/1.1" 200 -
+209.6.93.214 - - [16/Feb/2016 04:07:45] "GET /favicon.ico HTTP/1.1" 404 -
+209.6.93.214 - - [16/Feb/2016 04:07:47] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+209.6.93.214 - - [16/Feb/2016 04:07:47] "GET /fhir-app/launch.html?iss=https%3A%2F%2Fstub.smarthealthit.org%2Fsmart%2Fdstu1&selected=&launch=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0%3D.eyJwYXRpZW50IjoiMTI4ODk5MiIsIm5lZWRfcGF0aWVudF9iYW5uZXIiOnRydWUsInNtYXJ0X3N0eWxlX3VybCI6Imh0dHBzOi8vZ2FsbGVyeS1zdHlsZXMuc21hcnRoZWFsdGhpdC5vcmcvc3R5bGVzL3YxLjIuMTIifQ%3D%3D. HTTP/1.1" 200 -
+209.6.93.214 - - [16/Feb/2016 04:07:48] "GET /static/js/fhir-client.min.js HTTP/1.1" 200 -
+209.6.93.214 - - [16/Feb/2016 04:07:51] "GET /?code=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjb250ZXh0Ijp7InBhdGllbnQiOiIxMjg4OTkyIiwibmVlZF9wYXRpZW50X2Jhbm5lciI6dHJ1ZSwic21hcnRfc3R5bGVfdXJsIjoiaHR0cHM6Ly9nYWxsZXJ5LXN0eWxlcy5zbWFydGhlYWx0aGl0Lm9yZy9zdHlsZXMvdjEuMi4xMiJ9LCJjbGllbnRfaWQiOiI1ZTNhMzcwYy0xZmZmLTQxZDYtYTRlZi1kMTc3YzE5MzU3ZTciLCJzY29wZSI6ImxhdW5jaCBsYXVuY2gvcGF0aWVudCBsYXVuY2gvZW5jb3VudGVyIHBhdGllbnQvKi5yZWFkIHVzZXIvKi4qIG9wZW5pZCBwcm9maWxlIGxhdW5jaDpleUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUp1YjI1bEluMD0uZXlKd1lYUnBaVzUwSWpvaU1USTRPRGs1TWlJc0ltNWxaV1JmY0dGMGFXVnVkRjlpWVc1dVpYSWlPblJ5ZFdVc0luTnRZWEowWDNOMGVXeGxYM1Z5YkNJNkltaDBkSEJ6T2k4dloyRnNiR1Z5ZVMxemRIbHNaWE11YzIxaGNuUm9aV0ZzZEdocGRDNXZjbWN2YzNSNWJHVnpMM1l4TGpJdU1USWlmUT09LiIsImlhdCI6MTQ1NTU5NTU0MiwiZXhwIjoxNDU1NTk1ODQyfQ.BWbdWJ20rKOGYf_Wy2VezUIELrrNUM395XiGuB3hyX0&state=b5f144e5-8614-7ef9-c8cd-910133ebec00 HTTP/1.1" 200 -
+209.6.93.214 - - [16/Feb/2016 04:07:52] "GET /static/assets/fluid_grid_60_12_0.css HTTP/1.1" 200 -
+209.6.93.214 - - [16/Feb/2016 04:07:52] "GET /static/assets/main.css HTTP/1.1" 200 -
+209.6.93.214 - - [16/Feb/2016 04:07:52] "GET /static/js/jquery-1.7.2.min.js HTTP/1.1" 200 -
+209.6.93.214 - - [16/Feb/2016 04:07:52] "GET /static/js/xdate.js HTTP/1.1" 200 -
+209.6.93.214 - - [16/Feb/2016 04:07:52] "GET /static/js/jsonld.js HTTP/1.1" 200 -
+209.6.93.214 - - [16/Feb/2016 04:07:53] "GET /static/js/flot/jquery.flot.min.js HTTP/1.1" 200 -
+209.6.93.214 - - [16/Feb/2016 04:07:53] "GET /static/js/flot/jquery.flot.resize.min.js HTTP/1.1" 200 -
+209.6.93.214 - - [16/Feb/2016 04:07:53] "GET /static/js/underscore.min.js HTTP/1.1" 200 -
+209.6.93.214 - - [16/Feb/2016 04:07:53] "GET /static/js/json2.js HTTP/1.1" 200 -
+209.6.93.214 - - [16/Feb/2016 04:07:53] "GET /static/js/jquery.tools.overlay.js HTTP/1.1" 200 -
+209.6.93.214 - - [16/Feb/2016 04:07:53] "GET /static/js/highcharts.js HTTP/1.1" 200 -
+209.6.93.214 - - [16/Feb/2016 04:07:57] "GET /static/js/main.js HTTP/1.1" 200 -
+209.6.93.214 - - [16/Feb/2016 04:07:57] "GET /static/js/highcharts-more.js HTTP/1.1" 200 -
+209.6.93.214 - - [16/Feb/2016 04:07:57] "GET /static/js/genomics.js HTTP/1.1" 200 -
+209.6.93.214 - - [16/Feb/2016 04:07:57] "GET /static/assets/smart_bug.png HTTP/1.1" 200 -
+209.6.93.214 - - [16/Feb/2016 04:07:57] "GET /static/assets/timeline_mockup.png HTTP/1.1" 200 -
+ * Running on http://0.0.0.0:1028/ (Press CTRL+C to quit)
+ * Restarting with stat
+209.6.93.214 - - [16/Feb/2016 04:22:54] "GET /fhir-app/launch.html?launch=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0%3D.eyJwYXRpZW50IjoiMTI4ODk5MiIsIm5lZWRfcGF0aWVudF9iYW5uZXIiOnRydWUsInNtYXJ0X3N0eWxlX3VybCI6Imh0dHBzOi8vZ2FsbGVyeS1zdHlsZXMuc21hcnRoZWFsdGhpdC5vcmcvc3R5bGVzL3YxLjIuMTIifQ%3D%3D.&iss=https%3A%2F%2Fstub.smarthealthit.org%2Fsmart%2Fdstu1 HTTP/1.1" 302 -
+209.6.93.214 - - [16/Feb/2016 04:22:54] "GET /prompt-select-sample HTTP/1.1" 200 -
+209.6.93.214 - - [16/Feb/2016 04:22:58] "GET /callsets? HTTP/1.1" 200 -
+209.6.93.214 - - [16/Feb/2016 04:23:07] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+209.6.93.214 - - [16/Feb/2016 04:23:07] "GET /fhir-app/launch.html?iss=https%3A%2F%2Fstub.smarthealthit.org%2Fsmart%2Fdstu1&selected=&launch=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0%3D.eyJwYXRpZW50IjoiMTI4ODk5MiIsIm5lZWRfcGF0aWVudF9iYW5uZXIiOnRydWUsInNtYXJ0X3N0eWxlX3VybCI6Imh0dHBzOi8vZ2FsbGVyeS1zdHlsZXMuc21hcnRoZWFsdGhpdC5vcmcvc3R5bGVzL3YxLjIuMTIifQ%3D%3D. HTTP/1.1" 200 -
+209.6.93.214 - - [16/Feb/2016 04:23:08] "GET /?code=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjb250ZXh0Ijp7InBhdGllbnQiOiIxMjg4OTkyIiwibmVlZF9wYXRpZW50X2Jhbm5lciI6dHJ1ZSwic21hcnRfc3R5bGVfdXJsIjoiaHR0cHM6Ly9nYWxsZXJ5LXN0eWxlcy5zbWFydGhlYWx0aGl0Lm9yZy9zdHlsZXMvdjEuMi4xMiJ9LCJjbGllbnRfaWQiOiI1ZTNhMzcwYy0xZmZmLTQxZDYtYTRlZi1kMTc3YzE5MzU3ZTciLCJzY29wZSI6ImxhdW5jaCBsYXVuY2gvcGF0aWVudCBsYXVuY2gvZW5jb3VudGVyIHBhdGllbnQvKi5yZWFkIHVzZXIvKi4qIG9wZW5pZCBwcm9maWxlIGxhdW5jaDpleUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUp1YjI1bEluMD0uZXlKd1lYUnBaVzUwSWpvaU1USTRPRGs1TWlJc0ltNWxaV1JmY0dGMGFXVnVkRjlpWVc1dVpYSWlPblJ5ZFdVc0luTnRZWEowWDNOMGVXeGxYM1Z5YkNJNkltaDBkSEJ6T2k4dloyRnNiR1Z5ZVMxemRIbHNaWE11YzIxaGNuUm9aV0ZzZEdocGRDNXZjbWN2YzNSNWJHVnpMM1l4TGpJdU1USWlmUT09LiIsImlhdCI6MTQ1NTU5NjQ1OSwiZXhwIjoxNDU1NTk2NzU5fQ.ffXsFuQL4QdOtA4DPL9OedRf3mgllJOaZH2oMq0i8BI&state=393d0b4b-b72a-6604-ecfa-31c0bf8d42af HTTP/1.1" 200 -
+209.6.93.214 - - [16/Feb/2016 04:23:09] "GET /snp-data HTTP/1.1" 200 -
+ * Running on http://0.0.0.0:1028/ (Press CTRL+C to quit)
+ * Restarting with stat
+134.174.21.4 - - [18/Feb/2016 19:41:55] "GET /fhir-app/launch.html?launch=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0%3D.eyJwYXRpZW50IjoiMTI4ODk5MiIsIm5lZWRfcGF0aWVudF9iYW5uZXIiOnRydWUsInNtYXJ0X3N0eWxlX3VybCI6Imh0dHBzOi8vZ2FsbGVyeS1zdHlsZXMuc21hcnRoZWFsdGhpdC5vcmcvc3R5bGVzL3YxLjIuMTIifQ%3D%3D.&iss=https%3A%2F%2Fstub.smarthealthit.org%2Fsmart%2Fdstu1 HTTP/1.1" 302 -
+134.174.21.4 - - [18/Feb/2016 19:41:55] "GET /prompt-select-sample HTTP/1.1" 200 -
+134.174.21.4 - - [18/Feb/2016 19:42:02] "GET /callsets? HTTP/1.1" 200 -
+134.174.21.4 - - [18/Feb/2016 19:42:04] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+134.174.21.4 - - [18/Feb/2016 19:42:04] "GET /fhir-app/launch.html?iss=https%3A%2F%2Fstub.smarthealthit.org%2Fsmart%2Fdstu1&selected=&launch=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0%3D.eyJwYXRpZW50IjoiMTI4ODk5MiIsIm5lZWRfcGF0aWVudF9iYW5uZXIiOnRydWUsInNtYXJ0X3N0eWxlX3VybCI6Imh0dHBzOi8vZ2FsbGVyeS1zdHlsZXMuc21hcnRoZWFsdGhpdC5vcmcvc3R5bGVzL3YxLjIuMTIifQ%3D%3D. HTTP/1.1" 200 -
+134.174.21.4 - - [18/Feb/2016 19:42:05] "GET /?code=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjb250ZXh0Ijp7InBhdGllbnQiOiIxMjg4OTkyIiwibmVlZF9wYXRpZW50X2Jhbm5lciI6dHJ1ZSwic21hcnRfc3R5bGVfdXJsIjoiaHR0cHM6Ly9nYWxsZXJ5LXN0eWxlcy5zbWFydGhlYWx0aGl0Lm9yZy9zdHlsZXMvdjEuMi4xMiJ9LCJjbGllbnRfaWQiOiI1ZTNhMzcwYy0xZmZmLTQxZDYtYTRlZi1kMTc3YzE5MzU3ZTciLCJzY29wZSI6ImxhdW5jaCBsYXVuY2gvcGF0aWVudCBsYXVuY2gvZW5jb3VudGVyIHBhdGllbnQvKi5yZWFkIHVzZXIvKi4qIG9wZW5pZCBwcm9maWxlIGxhdW5jaDpleUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUp1YjI1bEluMD0uZXlKd1lYUnBaVzUwSWpvaU1USTRPRGs1TWlJc0ltNWxaV1JmY0dGMGFXVnVkRjlpWVc1dVpYSWlPblJ5ZFdVc0luTnRZWEowWDNOMGVXeGxYM1Z5YkNJNkltaDBkSEJ6T2k4dloyRnNiR1Z5ZVMxemRIbHNaWE11YzIxaGNuUm9aV0ZzZEdocGRDNXZjbWN2YzNSNWJHVnpMM1l4TGpJdU1USWlmUT09LiIsImlhdCI6MTQ1NTgyNDM5NCwiZXhwIjoxNDU1ODI0Njk0fQ.w97DF0AtJm_nRdlcNs2iNxJrzJgmSVANKDB7os7DVuM&state=37b443a4-4eb0-01da-d49a-fcce598f1828 HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 05:08:57] "GET /fhir-app/launch.html?launch=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0%3D.eyJwYXRpZW50IjoiMTI4ODk5MiIsIm5lZWRfcGF0aWVudF9iYW5uZXIiOnRydWUsInNtYXJ0X3N0eWxlX3VybCI6Imh0dHBzOi8vZ2FsbGVyeS1zdHlsZXMuc21hcnRoZWFsdGhpdC5vcmcvc3R5bGVzL3YxLjIuMTIifQ%3D%3D.&iss=https%3A%2F%2Fstub.smarthealthit.org%2Fsmart%2Fdstu1 HTTP/1.1" 302 -
+114.214.188.247 - - [19/Feb/2016 05:08:58] "GET /prompt-select-sample HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 05:08:58] "GET /static/js/select.js HTTP/1.1" 200 -
+112.64.235.252 - - [19/Feb/2016 05:08:58] "GET /prompt-select-sample HTTP/1.1" 200 -
+112.64.235.90 - - [19/Feb/2016 05:08:59] "GET /fhir-app/launch.html?launch=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0=.eyJwYXRpZW50IjoiMTI4ODk5MiIsIm5lZWRfcGF0aWVudF9iYW5uZXIiOnRydWUsInNtYXJ0X3N0eWxlX3VybCI6Imh0dHBzOi8vZ2FsbGVyeS1zdHlsZXMuc21hcnRoZWFsdGhpdC5vcmcvc3R5bGVzL3YxLjIuMTIifQ==.&iss=https://stub.smarthealthit.org/smart/dstu1 HTTP/1.1" 302 -
+114.214.188.247 - - [19/Feb/2016 05:09:01] "GET /callsets? HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 05:09:01] "GET /favicon.ico HTTP/1.1" 404 -
+112.64.235.90 - - [19/Feb/2016 05:09:01] "GET /prompt-select-sample HTTP/1.1" 200 -
+101.226.33.225 - - [19/Feb/2016 05:09:11] "GET /callsets HTTP/1.1" 200 -
+112.64.235.90 - - [19/Feb/2016 05:09:37] "GET /static/js/select.js HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 05:09:54] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+114.214.188.247 - - [19/Feb/2016 05:09:54] "GET /fhir-app/launch.html?iss=https%3A%2F%2Fstub.smarthealthit.org%2Fsmart%2Fdstu1&selected=&launch=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0%3D.eyJwYXRpZW50IjoiMTI4ODk5MiIsIm5lZWRfcGF0aWVudF9iYW5uZXIiOnRydWUsInNtYXJ0X3N0eWxlX3VybCI6Imh0dHBzOi8vZ2FsbGVyeS1zdHlsZXMuc21hcnRoZWFsdGhpdC5vcmcvc3R5bGVzL3YxLjIuMTIifQ%3D%3D. HTTP/1.1" 200 -
+101.226.66.178 - - [19/Feb/2016 05:09:55] "GET /fhir-app/launch.html?iss=https://stub.smarthealthit.org/smart/dstu1&selected=&launch=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0=.eyJwYXRpZW50IjoiMTI4ODk5MiIsIm5lZWRfcGF0aWVudF9iYW5uZXIiOnRydWUsInNtYXJ0X3N0eWxlX3VybCI6Imh0dHBzOi8vZ2FsbGVyeS1zdHlsZXMuc21hcnRoZWFsdGhpdC5vcmcvc3R5bGVzL3YxLjIuMTIifQ==. HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 05:09:55] "GET /static/js/fhir-client.min.js HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 05:10:06] "GET /?code=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjb250ZXh0Ijp7InBhdGllbnQiOiIxMjg4OTkyIiwibmVlZF9wYXRpZW50X2Jhbm5lciI6dHJ1ZSwic21hcnRfc3R5bGVfdXJsIjoiaHR0cHM6Ly9nYWxsZXJ5LXN0eWxlcy5zbWFydGhlYWx0aGl0Lm9yZy9zdHlsZXMvdjEuMi4xMiJ9LCJjbGllbnRfaWQiOiI1ZTNhMzcwYy0xZmZmLTQxZDYtYTRlZi1kMTc3YzE5MzU3ZTciLCJzY29wZSI6ImxhdW5jaCBsYXVuY2gvcGF0aWVudCBsYXVuY2gvZW5jb3VudGVyIHBhdGllbnQvKi5yZWFkIHVzZXIvKi4qIG9wZW5pZCBwcm9maWxlIGxhdW5jaDpleUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUp1YjI1bEluMD0uZXlKd1lYUnBaVzUwSWpvaU1USTRPRGs1TWlJc0ltNWxaV1JmY0dGMGFXVnVkRjlpWVc1dVpYSWlPblJ5ZFdVc0luTnRZWEowWDNOMGVXeGxYM1Z5YkNJNkltaDBkSEJ6T2k4dloyRnNiR1Z5ZVMxemRIbHNaWE11YzIxaGNuUm9aV0ZzZEdocGRDNXZjbWN2YzNSNWJHVnpMM1l4TGpJdU1USWlmUT09LiIsImlhdCI6MTQ1NTg1ODQ3NiwiZXhwIjoxNDU1ODU4Nzc2fQ.e2E_kADDkYg1u1N0vgwWqKv8f5ZVopFArPNp2EhTbXk&state=8fefb7c4-5356-ecd7-4326-ddb6dd888aa0 HTTP/1.1" 200 -
+180.153.214.198 - - [19/Feb/2016 05:10:07] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/deployer/GenomicsAdvisor/GenomicsAdvisor_v2/web.py", line 51, in select_sample
+    launch_args = json.loads(session['launch_args'])
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/local.py", line 368, in <lambda>
+    __getitem__ = lambda x, i: x._get_current_object()[i]
+KeyError: 'launch_args'
+180.153.206.33 - - [19/Feb/2016 05:10:07] "GET /?code=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjb250ZXh0Ijp7InBhdGllbnQiOiIxMjg4OTkyIiwibmVlZF9wYXRpZW50X2Jhbm5lciI6dHJ1ZSwic21hcnRfc3R5bGVfdXJsIjoiaHR0cHM6Ly9nYWxsZXJ5LXN0eWxlcy5zbWFydGhlYWx0aGl0Lm9yZy9zdHlsZXMvdjEuMi4xMiJ9LCJjbGllbnRfaWQiOiI1ZTNhMzcwYy0xZmZmLTQxZDYtYTRlZi1kMTc3YzE5MzU3ZTciLCJzY29wZSI6ImxhdW5jaCBsYXVuY2gvcGF0aWVudCBsYXVuY2gvZW5jb3VudGVyIHBhdGllbnQvKi5yZWFkIHVzZXIvKi4qIG9wZW5pZCBwcm9maWxlIGxhdW5jaDpleUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUp1YjI1bEluMD0uZXlKd1lYUnBaVzUwSWpvaU1USTRPRGs1TWlJc0ltNWxaV1JmY0dGMGFXVnVkRjlpWVc1dVpYSWlPblJ5ZFdVc0luTnRZWEowWDNOMGVXeGxYM1Z5YkNJNkltaDBkSEJ6T2k4dloyRnNiR1Z5ZVMxemRIbHNaWE11YzIxaGNuUm9aV0ZzZEdocGRDNXZjbWN2YzNSNWJHVnpMM1l4TGpJdU1USWlmUT09LiIsImlhdCI6MTQ1NTg1ODQ3NiwiZXhwIjoxNDU1ODU4Nzc2fQ.e2E_kADDkYg1u1N0vgwWqKv8f5ZVopFArPNp2EhTbXk&state=8fefb7c4-5356-ecd7-4326-ddb6dd888aa0 HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1403, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/deployer/GenomicsAdvisor/GenomicsAdvisor_v2/web.py", line 61, in index
+    return render_template('index.html', sample_id=session['sample_id'])
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/local.py", line 368, in <lambda>
+    __getitem__ = lambda x, i: x._get_current_object()[i]
+KeyError: 'sample_id'
+114.214.188.247 - - [19/Feb/2016 05:10:07] "GET /static/assets/fluid_grid_60_12_0.css HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 05:10:07] "GET /static/js/fhir-client.min.js HTTP/1.1" 304 -
+114.214.188.247 - - [19/Feb/2016 05:10:07] "GET /static/assets/main.css HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 05:10:07] "GET /static/js/jquery-1.7.2.min.js HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 05:10:09] "GET /static/js/xdate.js HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 05:10:09] "GET /static/js/jsonld.js HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 05:10:10] "GET /static/js/flot/jquery.flot.min.js HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 05:10:10] "GET /static/js/flot/jquery.flot.resize.min.js HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 05:10:10] "GET /static/js/underscore.min.js HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 05:10:10] "GET /static/js/json2.js HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 05:10:10] "GET /static/js/jquery.tools.overlay.js HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 05:10:11] "GET /static/js/highcharts.js HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 05:10:32] "GET /static/js/highcharts-more.js HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 05:10:32] "GET /static/js/main.js HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 05:10:33] "GET /static/js/genomics.js HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 05:10:33] "GET /static/assets/smart_bug.png HTTP/1.1" 200 -
+112.64.235.252 - - [19/Feb/2016 05:10:33] "GET /static/js/select.js HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 05:10:34] "GET /static/assets/timeline_mockup.png HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 05:12:33] "GET /snps/10473108253681171589-0 HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 05:12:34] "GET /frequencies HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 05:12:34] "GET /snp-data HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 05:12:34] "GET /drug-info HTTP/1.1" 200 -
+180.153.201.66 - - [19/Feb/2016 05:12:34] "GET /drug-info HTTP/1.1" 200 -
+180.153.214.200 - - [19/Feb/2016 05:12:45] "GET /snps/10473108253681171589-0 HTTP/1.1" 200 -
+112.64.235.90 - - [19/Feb/2016 05:12:45] "GET /snp-data HTTP/1.1" 200 -
+101.226.66.187 - - [19/Feb/2016 05:12:45] "GET /frequencies HTTP/1.1" 200 -
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/SocketServer.py", line 284, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/usr/lib/python2.7/SocketServer.py", line 310, in process_request
+    self.finish_request(request, client_address)
+  File "/usr/lib/python2.7/SocketServer.py", line 323, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python2.7/SocketServer.py", line 640, in __init__
+    self.finish()
+  File "/usr/lib/python2.7/SocketServer.py", line 693, in finish
+    self.wfile.flush()
+  File "/usr/lib/python2.7/socket.py", line 303, in flush
+    self._sock.sendall(view[write_offset:write_offset+buffer_size])
+  File "/usr/lib/python2.7/dist-packages/gevent/socket.py", line 504, in sendall
+    data_sent += self.send(_get_memory(data, data_sent), flags)
+  File "/usr/lib/python2.7/dist-packages/gevent/socket.py", line 478, in send
+    return sock.send(data, flags)
+error: [Errno 32] Broken pipe
+101.226.66.178 - - [19/Feb/2016 05:29:00] "GET /static/js/fhir-client.min.js HTTP/1.1" 200 -
+ * Running on http://0.0.0.0:1028/ (Press CTRL+C to quit)
+ * Restarting with stat
+114.214.188.247 - - [19/Feb/2016 05:46:58] "GET /fhir-app/launch.html?launch=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0%3D.eyJwYXRpZW50IjoiOTk5NTY3OSIsIm5lZWRfcGF0aWVudF9iYW5uZXIiOnRydWUsInNtYXJ0X3N0eWxlX3VybCI6Imh0dHBzOi8vZ2FsbGVyeS1zdHlsZXMuc21hcnRoZWFsdGhpdC5vcmcvc3R5bGVzL3YxLjIuMTIifQ%3D%3D.&iss=https%3A%2F%2Fstub.smarthealthit.org%2Fsmart%2Fdstu1 HTTP/1.1" 302 -
+114.214.188.247 - - [19/Feb/2016 05:46:58] "GET /prompt-select-sample HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 05:46:59] "GET /static/js/select.js HTTP/1.1" 304 -
+114.214.188.247 - - [19/Feb/2016 05:47:06] "GET /callsets? HTTP/1.1" 200 -
+66.30.63.130 - - [19/Feb/2016 05:58:08] "GET /fhir-app/launch.html?launch=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0%3D.eyJwYXRpZW50IjoiMTU3Nzc4MCIsIm5lZWRfcGF0aWVudF9iYW5uZXIiOnRydWUsInNtYXJ0X3N0eWxlX3VybCI6Imh0dHBzOi8vZ2FsbGVyeS1zdHlsZXMuc21hcnRoZWFsdGhpdC5vcmcvc3R5bGVzL3YxLjIuMTIifQ%3D%3D.&iss=https%3A%2F%2Fstub.smarthealthit.org%2Fsmart%2Fdstu1 HTTP/1.1" 302 -
+66.30.63.130 - - [19/Feb/2016 05:58:08] "GET /prompt-select-sample HTTP/1.1" 200 -
+66.30.63.130 - - [19/Feb/2016 05:58:08] "GET /static/js/select.js HTTP/1.1" 200 -
+66.30.63.130 - - [19/Feb/2016 05:58:14] "GET /callsets? HTTP/1.1" 200 -
+66.30.63.130 - - [19/Feb/2016 05:58:14] "GET /favicon.ico HTTP/1.1" 404 -
+66.30.63.130 - - [19/Feb/2016 05:58:16] "GET /select-sample?sample_id=10473108253681171589-0 HTTP/1.1" 302 -
+66.30.63.130 - - [19/Feb/2016 05:58:16] "GET /fhir-app/launch.html?iss=https%3A%2F%2Fstub.smarthealthit.org%2Fsmart%2Fdstu1&selected=&launch=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0%3D.eyJwYXRpZW50IjoiMTU3Nzc4MCIsIm5lZWRfcGF0aWVudF9iYW5uZXIiOnRydWUsInNtYXJ0X3N0eWxlX3VybCI6Imh0dHBzOi8vZ2FsbGVyeS1zdHlsZXMuc21hcnRoZWFsdGhpdC5vcmcvc3R5bGVzL3YxLjIuMTIifQ%3D%3D. HTTP/1.1" 200 -
+66.30.63.130 - - [19/Feb/2016 05:58:16] "GET /static/js/fhir-client.min.js HTTP/1.1" 200 -
+66.30.63.130 - - [19/Feb/2016 05:58:18] "GET /?code=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjb250ZXh0Ijp7InBhdGllbnQiOiIxNTc3NzgwIiwibmVlZF9wYXRpZW50X2Jhbm5lciI6dHJ1ZSwic21hcnRfc3R5bGVfdXJsIjoiaHR0cHM6Ly9nYWxsZXJ5LXN0eWxlcy5zbWFydGhlYWx0aGl0Lm9yZy9zdHlsZXMvdjEuMi4xMiJ9LCJjbGllbnRfaWQiOiI1ZTNhMzcwYy0xZmZmLTQxZDYtYTRlZi1kMTc3YzE5MzU3ZTciLCJzY29wZSI6ImxhdW5jaCBsYXVuY2gvcGF0aWVudCBsYXVuY2gvZW5jb3VudGVyIHBhdGllbnQvKi5yZWFkIHVzZXIvKi4qIG9wZW5pZCBwcm9maWxlIGxhdW5jaDpleUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUp1YjI1bEluMD0uZXlKd1lYUnBaVzUwSWpvaU1UVTNOemM0TUNJc0ltNWxaV1JmY0dGMGFXVnVkRjlpWVc1dVpYSWlPblJ5ZFdVc0luTnRZWEowWDNOMGVXeGxYM1Z5YkNJNkltaDBkSEJ6T2k4dloyRnNiR1Z5ZVMxemRIbHNaWE11YzIxaGNuUm9aV0ZzZEdocGRDNXZjbWN2YzNSNWJHVnpMM1l4TGpJdU1USWlmUT09LiIsImlhdCI6MTQ1NTg2MTM2NywiZXhwIjoxNDU1ODYxNjY3fQ.KvgimqW1nmZP6D_Ymew2pMOtqlLog_-HmPZCQ8t66Xo&state=f8c2b024-16be-613b-4787-ac9893f0d929 HTTP/1.1" 200 -
+66.30.63.130 - - [19/Feb/2016 05:58:18] "GET /static/assets/fluid_grid_60_12_0.css HTTP/1.1" 200 -
+66.30.63.130 - - [19/Feb/2016 05:58:18] "GET /static/assets/main.css HTTP/1.1" 200 -
+66.30.63.130 - - [19/Feb/2016 05:58:18] "GET /static/js/jquery-1.7.2.min.js HTTP/1.1" 200 -
+66.30.63.130 - - [19/Feb/2016 05:58:18] "GET /static/js/xdate.js HTTP/1.1" 200 -
+66.30.63.130 - - [19/Feb/2016 05:58:18] "GET /static/js/jsonld.js HTTP/1.1" 200 -
+66.30.63.130 - - [19/Feb/2016 05:58:19] "GET /static/js/flot/jquery.flot.min.js HTTP/1.1" 200 -
+66.30.63.130 - - [19/Feb/2016 05:58:19] "GET /static/js/underscore.min.js HTTP/1.1" 200 -
+66.30.63.130 - - [19/Feb/2016 05:58:19] "GET /static/js/flot/jquery.flot.resize.min.js HTTP/1.1" 200 -
+66.30.63.130 - - [19/Feb/2016 05:58:19] "GET /static/js/json2.js HTTP/1.1" 200 -
+66.30.63.130 - - [19/Feb/2016 05:58:19] "GET /static/js/jquery.tools.overlay.js HTTP/1.1" 200 -
+66.30.63.130 - - [19/Feb/2016 05:58:19] "GET /static/js/highcharts.js HTTP/1.1" 200 -
+66.30.63.130 - - [19/Feb/2016 05:58:19] "GET /static/js/highcharts-more.js HTTP/1.1" 200 -
+66.30.63.130 - - [19/Feb/2016 05:58:19] "GET /static/js/main.js HTTP/1.1" 200 -
+66.30.63.130 - - [19/Feb/2016 05:58:19] "GET /static/js/genomics.js HTTP/1.1" 200 -
+66.30.63.130 - - [19/Feb/2016 05:58:19] "GET /static/assets/smart_bug.png HTTP/1.1" 200 -
+66.30.63.130 - - [19/Feb/2016 05:58:19] "GET /static/assets/timeline_mockup.png HTTP/1.1" 200 -
+66.30.63.130 - - [19/Feb/2016 05:58:20] "GET /snp-data HTTP/1.1" 200 -
+66.30.63.130 - - [19/Feb/2016 06:00:04] "GET /snps/10473108253681171589-0 HTTP/1.1" 200 -
+66.30.63.130 - - [19/Feb/2016 06:00:04] "GET /frequencies HTTP/1.1" 200 -
+66.30.63.130 - - [19/Feb/2016 06:00:04] "GET /drug-info HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 06:10:02] "GET /fhir-app/launch.html?launch=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0%3D.eyJwYXRpZW50IjoiOTk5NTY3OSIsIm5lZWRfcGF0aWVudF9iYW5uZXIiOnRydWUsInNtYXJ0X3N0eWxlX3VybCI6Imh0dHBzOi8vZ2FsbGVyeS1zdHlsZXMuc21hcnRoZWFsdGhpdC5vcmcvc3R5bGVzL3YxLjIuMTIifQ%3D%3D.&iss=https%3A%2F%2Fstub.smarthealthit.org%2Fsmart%2Fdstu1 HTTP/1.1" 302 -
+114.214.188.247 - - [19/Feb/2016 06:10:02] "GET /prompt-select-sample HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 06:10:03] "GET /static/js/select.js HTTP/1.1" 304 -
+114.214.188.247 - - [19/Feb/2016 06:10:05] "GET /callsets? HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 06:17:34] "GET /fhir-app/launch.html?launch=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0%3D.eyJwYXRpZW50IjoiOTk5NTY3OSIsIm5lZWRfcGF0aWVudF9iYW5uZXIiOnRydWUsInNtYXJ0X3N0eWxlX3VybCI6Imh0dHBzOi8vZ2FsbGVyeS1zdHlsZXMuc21hcnRoZWFsdGhpdC5vcmcvc3R5bGVzL3YxLjIuMTIifQ%3D%3D.&iss=https%3A%2F%2Fstub.smarthealthit.org%2Fsmart%2Fdstu1 HTTP/1.1" 302 -
+114.214.188.247 - - [19/Feb/2016 06:17:35] "GET /prompt-select-sample HTTP/1.1" 200 -
+114.214.188.247 - - [19/Feb/2016 06:17:35] "GET /static/js/select.js HTTP/1.1" 304 -
+114.214.188.247 - - [19/Feb/2016 06:17:36] "GET /callsets? HTTP/1.1" 200 -
