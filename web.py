@@ -48,13 +48,16 @@ def prompt_select_sample():
 
 @app.route('/select-sample')
 def select_sample():
-    launch_args = json.loads(session['launch_args'])
-    launch_args['selected'] = ''
-    session['sample_id'] = request.args['sample_id']
-    return redirect('%s?%s'% (
-        url_for('launch'),
-        urlencode(launch_args)))
-
+    try:
+        launch_args = json.loads(session['launch_args'])
+        launch_args['selected'] = ''
+        session['sample_id'] = request.args['sample_id']
+        return redirect('%s?%s'% (
+            url_for('launch'),
+            urlencode(launch_args)))
+    except:
+        #print 'select-sample part error'
+        return render_template('error.html')
 
 @app.route('/')
 def index():
