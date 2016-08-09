@@ -66,7 +66,7 @@ def index():
     return render_template('index.html', sample_id=session['sample_id'])
 
 
-@app.route('/fhir-app/launch.html')
+@app.route('/launch.html')
 def launch():
     if 'selected' not in request.args:
         session['launch_args'] = json.dumps(request.args)
@@ -127,10 +127,10 @@ def get_frequencies():
 
 @app.route('/callsets')
 def get_callsets():
-    vset_search = call_api2('/variantsets',datasetIds=[ga4gh.OKG])
-    #vset_search = ga4gh.search('variantsets', datasetIds=[ga4gh.OKG], repo_id='google')
+    #vset_search = call_api2('/variantsets',datasetIds=[ga4gh.OKG])
+    vset_search = ga4gh.search('variantsets', datasetIds=[ga4gh.OKG], repo_id='google')
     vset_id = vset_search['variantSets'][0]['id']
-    
+    '''
     callset_search = call_api2(
                                   '/callsets',
                                   variantSetIds=[vset_id],
@@ -144,7 +144,7 @@ def get_callsets():
             repo_id='google',
             pageSize=10,
             **request.args)
-    '''
+    
     return jsonify(callset_search)
 
 

@@ -153,22 +153,25 @@ var _round = function(val, dec){ return Math.round(val*Math.pow(10,dec))/Math.po
 
 var get_medications = function(){
   return $.Deferred(function(dfd){
-    patient.MedicationPrescription.search().then(function(rxs){
+    smart.patient.api.fetchAll({type: "MedicationOrder"}).then(function(rxs){
       _(rxs).each(function(rx){
-        var instructions = rx.dosageInstruction[0].text;
-        if (!instructions && rx.dosageInstruction[0].timingSchedule.doseQuantity) {
-          instructions = rx.dosageInstruction[0].timingSchedule.doseQuantity.value+ 
-                        " " + rx.dosageInstruction[0].timingSchedule.doseQuantity.units+
-                        " " 
-                         rx.dosageInstruction[0].timingSchedule.repeat.frequency + 
-                         " per " +
-                         rx.dosageInstruction[0].timingSchedule.repeat.duration + " " +
-                         rx.dosageInstruction[0].timingSchedule.repeat.units;
+        var instructions = "";
+        if (rx.dosageInstruction) {
+          instructions = rx.dosageInstruction[0].text;
+          if (!instructions && rx.dosageInstruction[0].doseQuantity) {
+            instructions = rx.dosageInstruction[0].doseQuantity.value+ 
+                          " " + rx.dosageInstruction[0].doseQuantity.unit+
+                          " " 
+                           rx.dosageInstruction[0].scheduledTiming.repeat.frequency + 
+                           " per " +
+                           rx.dosageInstruction[0].scheduledTiming.repeat.duration + " " +
+                           rx.dosageInstruction[0].scheduledTiming.repeat.unit;
+          }
         }
         pt.meds_arr.push([
-          new XDate(rx.dosageInstruction[0].timingSchedule.event[0].start).valueOf(),
-          smart.cachedLink(rx, rx.medication).code.coding[0].display,
-          rx.dosageInstruction && rx.dosageInstruction.text || ""
+          new XDate(rx.dosageInstruction && rx.dosageInstruction[0].timing.repeat.boundsPeriod.start || "1800-01-01").valueOf(),
+          rx.medicationCodeableConcept.coding[0].display,
+          instructions
         ])
       })
 
@@ -182,8 +185,7 @@ var get_demographics = function(){
     patient.read().then(function(patient){
       pt.given_name = patient.name[0].given.join(" ");
       pt.family_name = patient.name[0].family.join(" ");
-      pt.gender = patient.gender.coding[0];
-      pt.gender = pt.gender.code == 'M' ? 'male' : 'female';
+      pt.gender = patient.gender;
       pt.bday = patient.birthDate;
       pt.mrn = patient.identifier[0].value;
       dfd.resolve();
@@ -191,41 +193,38 @@ var get_demographics = function(){
   }).promise();
 };
 
-function itemByCode(from, toCode){
-    var match = from.related.filter(function(e){
-      var matches = smart.cachedLink(from, e.target).name.coding.filter(function(c){
-        return c.code == toCode;
-      });
-      return matches.length > 0;
-    })[0].target;
-    return smart.cachedLink(from, match);
-};
-
 var get_vital_sign_sets = function(){
   return $.Deferred(function(dfd){
    
     results = [];
-    var vitals = patient.Observation.where
-      .nameIn('8480-6','8462-4','8302-2','3141-9','55284-4')
-      .drain(function(batch){
-        [].push.apply(results, batch);
-       }); 
+    var vitals = smart.patient.api.fetchAll({type: "Observation", query: {code: {$or: ['8480-6','8462-4','8302-2','3141-9','55284-4']}}});
 
-    vitals.then(function(){
-      var vitalsByCode = smart.byCode(results, 'name');
+    vitals.then(function(results){
+      var vitalsByCode = smart.byCode(results, 'code');
 
       (vitalsByCode['55284-4']||[]).forEach(function(bp){
-        var sys = itemByCode(bp, "8480-6");
-        var dia = itemByCode(bp, "8462-4");
+      
+        var components = bp.component;
+
+        var dia = components.find(function(component){
+            return component.code.coding.find(function(coding) {
+                return coding.code === "8462-4";
+            });
+        });
+        var sys = components.find(function(component){
+            return component.code.coding.find(function(coding) {
+                return coding.code === "8480-6";
+            });
+        });
 
         pt.sbp_arr.push([
-          new XDate(sys.appliesDateTime).valueOf(),
+          new XDate(bp.effectiveDateTime).valueOf(),
           Number(sys.valueQuantity.value),
           sys.valueQuantity.code
         ])
 
         pt.dbp_arr.push([
-          new XDate(dia.appliesDateTime).valueOf(),
+          new XDate(bp.effectiveDateTime).valueOf(),
           Number(dia.valueQuantity.value),
           dia.valueQuantity.code
         ])
@@ -250,7 +249,7 @@ var get_vital_sign_sets = function(){
       pt.weight_arr = _(vitalsByCode["3141-9"]||[]).chain()
         .map(function(v){
           return [
-            new XDate(v.appliesDateTime).valueOf(),
+            new XDate(v.effectiveDateTime).valueOf(),
             smart.units.kg(v.valueQuantity),
             "kg"
           ];
@@ -262,7 +261,7 @@ var get_vital_sign_sets = function(){
       pt.height_arr = _(vitalsByCode["8302-2"]||[]).chain()
         .map(function(v){
           return [
-            new XDate(v.appliesDateTime).valueOf(),
+            new XDate(v.effectiveDateTime).valueOf(),
             smart.units.cm(v.valueQuantity)/100.0,
             "m"
           ];
@@ -284,11 +283,11 @@ function anyOf(byCode, codes){
   });
   return _(res).chain()
           .map(function(r){
-            var d = new XDate(r.appliesDateTime)
+            var d = new XDate(r.effectiveDateTime)
             return [
               d.valueOf(),
               r.valueQuantity.value,
-              r.valueQuantity.code
+              r.valueQuantity.unit
             ]
           })
           .sortBy(function(r){ return r[0]; })
@@ -297,12 +296,8 @@ function anyOf(byCode, codes){
 
 var get_lab_results = function(){
   return $.Deferred(function(dfd){
-
-   var results = [];
-   patient.Observation.drain(function(batch){
-    [].push.apply(results, batch);
-   }).then(function(){
-      var resultsByCode = smart.byCode(results, 'name');
+   smart.patient.api.fetchAll({type: "Observation"}).then(function(results){
+      var resultsByCode = smart.byCode(results, 'code');
 
       (function ldl(){
         // LOINC Code, Long name, Short Name, class, rank # of 2000
@@ -547,12 +542,12 @@ var get_lab_results = function(){
 
 var get_problems = function(){
   return $.Deferred(function(dfd){
-    patient.Condition.search().then(function(problems){
+    smart.patient.api.fetchAll({type: "Condition"}).then(function(problems){
       problems.forEach(function(p){
         pt.problems_arr.push([
-          new XDate(p.onsetDate),
+          new XDate(p.onsetDateTime),
           p.code.coding[0].display,
-          p.abatementDate ? new XDate(p.abatementDate) : null
+          p.abatementDateTime ? new XDate(p.abatementDateTime) : null
         ])
       })
       pt.problems_arr = _(pt.problems_arr).sortBy(function(p){ return p[0]; })
@@ -561,9 +556,11 @@ var get_problems = function(){
   }).promise();
 };
 
-FHIR.oauth2.ready(function(smart) {
+// On SMART.ready, do all the data api calls and synchronize
+// when they are all complete.
+FHIR.oauth2.ready(function(smart){
   window.smart = smart;
-  window.patient = smart.context.patient;
+  window.patient = smart.patient;
   $.when(
      get_demographics()
    , get_vital_sign_sets()
@@ -1170,6 +1167,37 @@ FHIR.oauth2.ready(function(smart) {
     // clone demo line into lkv popup
     $('#lkv_top_line').html($('#top_line').html())
 
+    // events
+    $('#sort_by_date').on('click',  function(){
+      $('#sort_by_date').hide()
+      $('#sort_by_alpha').show()
+      $('.header_sort_toggle').text('[Alpha]');
+      sort_by_date();
+      return false;
+    });
+    $('#sort_by_alpha').on('click', function(){
+      $('#sort_by_alpha').hide()
+      $('#sort_by_date').show()
+      $('.header_sort_toggle').text('[Chrono]');
+      sort_by_alpha();
+      return false;
+    });
+
+    $('.header_sort_toggle').on('click', function(e){
+      if ($(this).text() == '[Chrono]') {
+        $('.header_sort_toggle').text('[Alpha]');
+        $('#sort_by_date').hide()
+        $('#sort_by_alpha').show()
+        sort_by_date();
+      } else {
+        $('.header_sort_toggle').text('[Chrono]');
+        $('#sort_by_alpha').hide()
+        $('#sort_by_date').show()
+        sort_by_alpha();
+      }
+
+      return false;
+    })
 
     var l_opts = {
       top: '5%',
@@ -1200,9 +1228,8 @@ FHIR.oauth2.ready(function(smart) {
     // setup overlays
     $("#show_overlay[rel]").overlay(l_opts);
     $("#show_pt_summary_overlay[rel]").overlay(pts_opts);
+    $("#show_explainer_overlay[rel]").overlay({top: '5%'});
     $("#show_timeline_overlay[rel]").overlay({top: '5%'});
-    // setup genomics overlay here
-    $('#show_genomics_overlay[rel]').overlay({top: '5%'});
 
     // do data tables the labs overlay
     var labnames = [
@@ -1243,11 +1270,9 @@ FHIR.oauth2.ready(function(smart) {
     // reminders in the pt summary (todo: refactor dry!!)
     // look into the processed reminders array, see if there are reminders for
     // bps
-    if (pt.sdb) {
-      $('.bp_systolic_ps').html('<span class="">'+_round(pt.sbp[1], 0)+'</span>');
-    }
-    if (pt.dbp) {
-      $('.bp_diastolic_ps').html('<span class="">'+_round(pt.dbp[1], 0)+'</span>');
+    if (pt.sbp && pt.dbp) {
+        $('.bp_systolic_ps').html('<span class="">'+_round(pt.sbp[1], 0)+'</span>');
+        $('.bp_diastolic_ps').html('<span class="">'+_round(pt.dbp[1], 0)+'</span>');
     }
 
     // ldl or a1c
